@@ -1,5 +1,31 @@
 # Аудит m-trud.ru (MODX)
 
+## Development environment
+
+This repository stores audit artifacts and lightweight tooling used to validate the target website.
+
+### 1) Install Python dependencies
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+### 2) Run the environment sanity check
+
+```bash
+python3 scripts/dev_env_check.py --max-pages 20
+```
+
+Expected result: JSON output with `broken_count: 0` and zero exit code.
+
+### 3) Preview local artifacts (optional)
+
+```bash
+python3 -m http.server 8080
+```
+
+Then open: `http://127.0.0.1:8080/` and browse files in `artifacts/`.
+
 Дата аудита: 24.04.2026  
 Формат: технический SEO + performance + разметка + URL/боты + черновая проверка manager
 
