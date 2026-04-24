@@ -1,0 +1,92 @@
+---
+pid: 27152
+cwd: "C:\\Users\\sukuna"
+command: "python -c \"import requests, json\nu='https://www.googleapis.com/pagespeedonline/v5/runPagespeed'\nfor strat in ['mobile','desktop']:\n r=requests.get(u,params={'url':'https://m-trud.ru/','strategy':strat,'category':['performance','seo','best-practices','accessibility']},timeout=120)\n d=r.json()\n lh=d.get('lighthouseResult',{})\n cats=lh.get('categories',{})\n audits=lh.get('audits',{})\n score={k: (v.get('score')*100 if v and v.get('score') is not None else None) for k,v in cats.items()}\n opp=[]\n for k,v in audits.items():\n  if v.get('details',{}).get('overallSavingsMs') or v.get('details',{}).get('overallSavingsBytes'):\n   sm=v.get('details',{}).get('overallSavingsMs',0)\n   sb=v.get('details',{}).get('overallSavingsBytes',0)\n   if sm>0 or sb>0: opp.append((v.get('title',k),sm,sb,v.get('score')))\n opp=sorted(opp,key=lambda x:(x[1],x[2]),reverse=True)[:12]\n print('\\n==',strat,'==')\n print(json.dumps({'scores':score,'tti_ms':audits.get('interactive',{}).get('numericValue'),'lcp_ms':audits.get('largest-contentful-paint',{}).get('numericValue'),'tbt_ms':audits.get('total-blocking-time',{}).get('numericValue'),'cls':audits.get('cumulative-layout-shift',{}).get('numericValue'),'fcp_ms':audits.get('first-contentful-paint',{}).get('numericValue'),'opportunities':opp},ensure_ascii=False,indent=2))\""
+started_at: 2026-04-24T12:34:09.183Z
+running_for_ms: 120434   
+---
+Traceback (most recent call last):
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1251, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1103, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='www.googleapis.com', port=443): Read timed out. (read timeout=120)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sukuna\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='www.googleapis.com', port=443): Read timed out. (read timeout=120)
+
+== mobile ==
+{
+  "scores": {},
+  "tti_ms": null,
+  "lcp_ms": null,
+  "tbt_ms": null,
+  "cls": null,
+  "fcp_ms": null,
+  "opportunities": []
+}
+
+---
+exit_code: 1
+elapsed_ms: 121609
+ended_at: 2026-04-24T12:36:10.792Z
+---

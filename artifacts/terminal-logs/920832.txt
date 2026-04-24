@@ -1,0 +1,19 @@
+---
+pid: 36020
+cwd: "C:\\Users\\sukuna"
+command: "python -c \"import requests, bs4, urllib.parse, json\nfrom collections import deque,defaultdict\nbase='https://m-trud.ru/'\ns=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0 audit-bot'})\nseen=set(); q=deque([base]); broken=[]; checked=set(); max_pages=120\nwhile q and len(seen)<max_pages:\n u=q.popleft();\n if u in seen: continue\n try:r=s.get(u,timeout=20,allow_redirects=True)\n except Exception as e: seen.add(u); continue\n final=r.url; seen.add(u)\n if 'text/html' not in r.headers.get('Content-Type',''): continue\n soup=bs4.BeautifulSoup(r.text,'html.parser')\n b=soup.find('base',href=True)\n base_href=urllib.parse.urljoin(final,b['href']) if b else final\n for a in soup.find_all('a',href=True):\n  h=a['href'].strip()\n  if h.startswith(('mailto:','tel:','javascript:','#')): continue\n  absu=urllib.parse.urljoin(base_href,h)\n  p=urllib.parse.urlparse(absu)\n  if not p.netloc.endswith('m-trud.ru'): continue\n  norm=urllib.parse.urlunparse((p.scheme,p.netloc,p.path,p.params,p.query,''))\n  if norm not in seen and len(seen)+len(q)<max_pages: q.append(norm)\n  if norm in checked: continue\n  checked.add(norm)\n  try:\n   rr=s.get(norm,timeout=15,allow_redirects=False)\n   if rr.status_code>=400: broken.append((u,norm,rr.status_code))\n  except: broken.append((u,norm,'ERR'))\nprint(json.dumps({'pages':len(seen),'checked_links':len(checked),'broken_count':len(broken),'broken_sample':broken[:80]},ensure_ascii=False,indent=2))\""
+started_at: 2026-04-24T12:39:39.670Z
+running_for_ms: 275261   
+---
+{
+  "pages": 119,
+  "checked_links": 1811,
+  "broken_count": 0,
+  "broken_sample": []
+}
+
+---
+exit_code: 0
+elapsed_ms: 276966
+ended_at: 2026-04-24T12:44:16.636Z
+---

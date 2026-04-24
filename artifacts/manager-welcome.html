@@ -1,0 +1,139 @@
+<!doctype html>
+<html  lang="ru" xml:lang="ru">
+<head>
+    <title>Войти | Мастерская труда</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" type="text/css" href="/manager/assets/ext3/resources/css/ext-all-notheme-min.css" />
+	<link rel="stylesheet" type="text/css" href="/manager/templates/default/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/manager/templates/default/css/login.css" />
+
+    <script src="/manager/assets/ext3/adapter/ext/ext-base.js"></script>
+    <script src="/manager/assets/ext3/ext-all.js"></script>
+    <script src="assets/modext/core/modx.js"></script>
+
+    <script src="assets/modext/core/modx.component.js"></script>
+    <script src="assets/modext/util/utilities.js"></script>
+    <script src="assets/modext/widgets/core/modx.panel.js"></script>
+    <script src="assets/modext/widgets/core/modx.window.js"></script>
+    <script src="assets/modext/sections/login.js"></script>
+
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body id="login">
+
+<br />
+
+<div id="container">
+    <div id="modx-login-logo">
+        <img alt="MODX CMS/CMF" src="/manager/templates/default/images/modx-logo-color.svg" />
+    </div>
+
+    <div id="modx-panel-login-div" class="x-panel modx-form x-form-label-right">
+        <form id="modx-login-form" action="" method="post">
+            <input type="hidden" name="login_context" value="mgr" />
+            <input type="hidden" name="modahsh" value="" />
+            <input type="hidden" name="returnUrl" value="/manager/?a=welcome" />
+
+            <div class="x-panel x-panel-noborder">
+                <div class="x-panel-bwrap">
+                    <div class="x-panel-body x-panel-body-noheader">
+                        <h2>Мастерская труда</h2>
+                        <br class="clear" />
+                                            </div>
+                </div>
+            </div>
+
+            <div class="x-form-item login-form-item login-form-item-first">
+                <label for="modx-login-username">Имя пользователя</label>
+                <div class="x-form-element login-form-element">
+                    <input type="text" id="modx-login-username" name="username" autocomplete="on" autofocus value="" class="x-form-text x-form-field" aria-required="true" required />
+                </div>
+            </div>
+
+            <div class="x-form-item login-form-item">
+                <label for="modx-login-password">Пароль</label>
+                <div class="x-form-element login-form-element">
+                    <input type="password" id="modx-login-password" name="password" autocomplete="on" class="x-form-text x-form-field" aria-required="true" required />
+                </div>
+            </div>
+
+            <div class="login-cb-row">
+                <div class="login-cb-col one">
+                    <div class="modx-login-fl-link">
+                        <a href="javascript:void(0);" id="modx-fl-link" style="">Забыли имя пользователя?</a>
+                    </div>
+                </div>
+                <div class="login-cb-col two">
+                    <div class="x-form-check-wrap modx-login-rm-cb">
+                        <input type="checkbox" id="modx-login-rememberme" name="rememberme" autocomplete="on"  class="x-form-checkbox x-form-field" value="1" />
+                        <label for="modx-login-rememberme" class="x-form-cb-label">Запомнить меня</label>
+                    </div>
+                    <button class="x-btn x-btn-small x-btn-icon-small-left primary-button x-btn-noicon login-form-btn" name="login" type="submit" value="1" id="modx-login-btn">Войти</button>
+                </div>
+            </div>
+
+            
+        </form>
+
+        <div class="modx-forgot-login">
+            <form id="modx-fl-form" action="" method="post">
+                <div id="modx-forgot-login-form" style="display: none;">
+                    <div class="x-form-item login-form-item">
+                        <div class="x-form-element login-form-element">
+                            <input type="text" id="modx-login-username-reset" name="username_reset" class="x-form-text x-form-field" value="" placeholder="Имя пользователя или электронная почта" />
+                        </div>
+                        <div class="x-form-clear-left"></div>
+                    </div>
+
+                    <button class="x-btn x-btn-small x-btn-icon-small-left primary-button x-btn-noicon login-form-btn" name="forgotlogin" type="submit" value="1" id="modx-fl-btn">Выслать письмо для активации</button>
+                </div>
+            </form>
+        </div>
+        <br class="clear" />
+    </div>
+
+    <p class="loginLicense">&copy; 2005-2026 by <a href="https://modx.com/about/" target="_blank">MODX, LLC</a>. MODX Revolution&trade; распространяется под лицензией GPLv2 или более поздней.</p>
+</div>
+
+<div id="modx-login-language-select-div">
+    <label id="modx-login-language-select-label">Язык:
+        <select name="cultureKey" id="modx-login-language-select" aria-labeled-by="modx-login-language-select-label">
+            <option value="ar">ar</option>
+            <option value="be">be</option>
+            <option value="bg">bg</option>
+            <option value="cs">cs</option>
+            <option value="da">da</option>
+            <option value="de">de</option>
+            <option value="el">el</option>
+            <option value="en">en</option>
+            <option value="es">es</option>
+            <option value="et">et</option>
+            <option value="fa">fa</option>
+            <option value="fi">fi</option>
+            <option value="fr">fr</option>
+            <option value="he">he</option>
+            <option value="hi">hi</option>
+            <option value="hu">hu</option>
+            <option value="id">id</option>
+            <option value="it">it</option>
+            <option value="ja">ja</option>
+            <option value="nl">nl</option>
+            <option value="pl">pl</option>
+            <option value="pt">pt</option>
+            <option value="pt-br">pt-br</option>
+            <option value="ro">ro</option>
+            <option value="ru" selected="selected">ru</option>
+            <option value="sv">sv</option>
+            <option value="th">th</option>
+            <option value="tr">tr</option>
+            <option value="uk">uk</option>
+            <option value="yo">yo</option>
+            <option value="zh">zh</option>
+        </select>
+    </label>
+</div>
+</body>
+</html>
