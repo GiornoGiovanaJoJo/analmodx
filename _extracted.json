@@ -1,0 +1,2010 @@
+{
+  "Кузнецов _ Техническое_задание_по_устранению_HTML_ошибок_m_trud_ru.docx": {
+    "type": "docx",
+    "paragraphs": [
+      {
+        "style": "Heading 1",
+        "text": "Техническое задание по устранению HTML-ошибок на сайте m-trud.ru"
+      },
+      {
+        "style": "Normal",
+        "text": "P0 — Критично (сломанная разметка/доступность/поведение форм)"
+      },
+      {
+        "style": "Normal",
+        "text": "Нарушена структура меню/списков"
+      },
+      {
+        "style": "Normal",
+        "text": "Ошибки: a not allowed as child of ul, No li in scope but </li> seen, ul внутри span, незакрытые <span>, «Saw < when expecting an attribute name», «End tag had attributes»."
+      },
+      {
+        "style": "Normal",
+        "text": "Что это значит: список должен содержать только <li>; вложенные списки — внутри <li>. Незакрытые/перепутанные теги ломают DOM и могут ломать стили/JS, навигацию клавиатурой и SEO."
+      },
+      {
+        "style": "Normal",
+        "text": "Как чинить: привести меню к схеме:"
+      },
+      {
+        "style": "Normal",
+        "text": "<ul class=\"menu\">"
+      },
+      {
+        "style": "Normal",
+        "text": "  <li>"
+      },
+      {
+        "style": "Normal",
+        "text": "    <a href=\"/...\">Раздел</a>"
+      },
+      {
+        "style": "Normal",
+        "text": "    <ul class=\"submenu\">"
+      },
+      {
+        "style": "Normal",
+        "text": "      <li><a href=\"/...\">Подраздел</a></li>"
+      },
+      {
+        "style": "Normal",
+        "text": "    </ul>"
+      },
+      {
+        "style": "Normal",
+        "text": "  </li>"
+      },
+      {
+        "style": "Normal",
+        "text": "</ul>"
+      },
+      {
+        "style": "Normal",
+        "text": "Убрать <ul> изнутри <span>, закрыть все <span>, убедиться, что каждому <ul> соответствует набор <li>."
+      },
+      {
+        "style": "Normal",
+        "text": "Некорректные теги и вложенность в label"
+      },
+      {
+        "style": "Normal",
+        "text": "Ошибки: элемент <spam> внутри <label>."
+      },
+      {
+        "style": "Normal",
+        "text": "Что это значит: <spam> — опечатка, такой тег не существует; плюс внутри <label> запрещены «помечаемые» элементы, кроме связанного контрола."
+      },
+      {
+        "style": "Normal",
+        "text": "Как чинить: заменить <spam> на <span> и/или вынести декоративные элементы из <label>. Ассоциацию делать через for/id:"
+      },
+      {
+        "style": "Normal",
+        "text": "<label for=\"agree\">Даю согласие</label>"
+      },
+      {
+        "style": "Normal",
+        "text": "<input id=\"agree\" type=\"checkbox\" name=\"agree\">"
+      },
+      {
+        "style": "Normal",
+        "text": "Формы: неверные атрибуты min=\"\""
+      },
+      {
+        "style": "Normal",
+        "text": "Ошибки: Bad value for attribute min ... \"\""
+      },
+      {
+        "style": "Normal",
+        "text": "Что это значит: пустое min — синтаксическая ошибка, ломает валидацию."
+      },
+      {
+        "style": "Normal",
+        "text": "Как чинить: либо убрать min, либо задать число:"
+      },
+      {
+        "style": "Normal",
+        "text": "<input type=\"number\" name=\"count\" min=\"1\" step=\"1\" required>"
+      },
+      {
+        "style": "Normal",
+        "text": "Дублирующийся ID"
+      },
+      {
+        "style": "Normal",
+        "text": "Ошибки: Duplicate ID catalog_form."
+      },
+      {
+        "style": "Normal",
+        "text": "Почему важно: селекторы JS/CSS, привязки событий и ARIA ломаются."
+      },
+      {
+        "style": "Normal",
+        "text": "Как чинить: каждому блоку — уникальный id (catalog_form_main, catalog_form_consult), привести JS к новым ID."
+      },
+      {
+        "style": "Normal",
+        "text": "<img> без src (ленивая загрузка)"
+      },
+      {
+        "style": "Normal",
+        "text": "Ошибки: «Element img is missing required attribute src.» (много раз)."
+      },
+      {
+        "style": "Normal",
+        "text": "Почему важно: валидность, LCP/CLS, индексация картинок; без src некоторые браузеры/боты картинку игнорируют."
+      },
+      {
+        "style": "Normal",
+        "text": "Как чинить: всегда задавать src (плейсхолдер) + data-src для ленивки, или использовать нативный loading=\"lazy\":"
+      },
+      {
+        "style": "Normal",
+        "text": "<img"
+      },
+      {
+        "style": "Normal",
+        "text": "  src=\"/img/placeholder.webp\""
+      },
+      {
+        "style": "Normal",
+        "text": "  data-src=\"/assets/.../image.webp\""
+      },
+      {
+        "style": "Normal",
+        "text": "  alt=\"...\""
+      },
+      {
+        "style": "Normal",
+        "text": "  class=\"lazyload\""
+      },
+      {
+        "style": "Normal",
+        "text": "  loading=\"lazy\""
+      },
+      {
+        "style": "Normal",
+        "text": "  width=\"228\" height=\"228\">"
+      },
+      {
+        "style": "Normal",
+        "text": "Добавить <noscript>-фолбэк:"
+      },
+      {
+        "style": "Normal",
+        "text": "<noscript><img src=\"/assets/.../image.webp\" alt=\"...\"></noscript>"
+      },
+      {
+        "style": "Normal",
+        "text": "P1 — Высокий приоритет (чистота/совместимость/SEO)"
+      },
+      {
+        "style": "Normal",
+        "text": "Ошибки/опечатки в закрытии тегов"
+      },
+      {
+        "style": "Normal",
+        "text": "Примеры: «End tag had attributes», «Saw < when expecting…»."
+      },
+      {
+        "style": "Normal",
+        "text": "Действия: прогнать автоформатер (Prettier/HTML Tidy), выровнять закрывающие теги, проверить шаблоны меню/каталогов."
+      },
+      {
+        "style": "Normal",
+        "text": "Слишком жёсткий pattern для email"
+      },
+      {
+        "style": "Normal",
+        "text": "Замечание: \\.[a-zA-Z]{2,6} режет длинные TLD (.solutions и т.п.)."
+      },
+      {
+        "style": "Normal",
+        "text": "Правильнее: либо вообще убрать pattern и положиться на type=\"email\", либо расширить:"
+      },
+      {
+        "style": "Normal",
+        "text": "<input type=\"email\" name=\"card_email\" autocomplete=\"email\" required>"
+      },
+      {
+        "style": "Normal",
+        "text": "P2 — Средний (устаревший HTML/CSS)"
+      },
+      {
+        "style": "Normal",
+        "text": "Устаревшие теги/атрибуты"
+      },
+      {
+        "style": "Normal",
+        "text": "Ошибки: <font>, align=\"center\" на div/span."
+      },
+      {
+        "style": "Normal",
+        "text": "Как чинить: всё в CSS:"
+      },
+      {
+        "style": "Normal",
+        "text": ".header-center { text-align:center; }"
+      },
+      {
+        "style": "Normal",
+        "text": ".title { font: 700 30px/1.2 Arial, sans-serif; color:#960000; }"
+      },
+      {
+        "style": "Normal",
+        "text": "<div class=\"header-center\"><span class=\"title\">Внимание</span></div>"
+      },
+      {
+        "style": "Normal",
+        "text": "type=\"text/javascript\" не нужен"
+      },
+      {
+        "style": "Normal",
+        "text": "Можно удалять: <script> достаточно."
+      },
+      {
+        "style": "Normal",
+        "text": "P3 — Низкий (косметика/стайлгайд)"
+      },
+      {
+        "style": "Normal",
+        "text": "Закрывающий слэш у пустых элементов"
+      },
+      {
+        "style": "Normal",
+        "text": "Инфо-сообщения: «Trailing slash on void elements…»."
+      },
+      {
+        "style": "Normal",
+        "text": "Как чинить: в HTML5 писать без />: <meta ...>, <link ...>, <br>, <img ...>."
+      },
+      {
+        "style": "Normal",
+        "text": "ТЗ для разработчика (коротко, с приоритетами)"
+      },
+      {
+        "style": "Normal",
+        "text": "P0 — Исправить первым делом"
+      },
+      {
+        "style": "Normal",
+        "text": "Пересобрать HTML навигации и списков"
+      },
+      {
+        "style": "Normal",
+        "text": "Привести к структуре ul > li > a, вложенные ul — только внутри li."
+      },
+      {
+        "style": "Normal",
+        "text": "Убрать ul внутри span, закрыть все span, устранить «End tag had attributes», «Saw < when…»."
+      },
+      {
+        "style": "Normal",
+        "text": "Проверка: валидатор без ошибок по секции меню; визуально/клавиатурой всё кликается."
+      },
+      {
+        "style": "Normal",
+        "text": "Формы"
+      },
+      {
+        "style": "Normal",
+        "text": "Заменить все min=\"\" на min=\"1\" (или удалить, если не нужно ограничение)."
+      },
+      {
+        "style": "Normal",
+        "text": "Проставить required на обязательные поля, type=\"email\" вместо вручную прописанных pattern (или существенно расширить паттерн)."
+      },
+      {
+        "style": "Normal",
+        "text": "Для чекбоксов согласия — корректные label for/id."
+      },
+      {
+        "style": "Normal",
+        "text": "Убрать <spam>, заменить на <span>."
+      },
+      {
+        "style": "Normal",
+        "text": "Уникальность ID"
+      },
+      {
+        "style": "Normal",
+        "text": "Переименовать повторяющиеся id=\"catalog_form\" в уникальные; обновить JS-селекторы."
+      },
+      {
+        "style": "Normal",
+        "text": "Картинки и ленивка"
+      },
+      {
+        "style": "Normal",
+        "text": "Всем <img> задать валидный src (плейсхолдер 1×1 или ту же картинку), оставить data-src для ленивки, добавить loading=\"lazy\", width/height для борьбы с CLS."
+      },
+      {
+        "style": "Normal",
+        "text": "Добавить <noscript>-фолбэк с обычным src."
+      },
+      {
+        "style": "Normal",
+        "text": "P1 — После критики"
+      },
+      {
+        "style": "Normal",
+        "text": "Устаревшее оформление"
+      },
+      {
+        "style": "Normal",
+        "text": "Удалить <font>, align, инлайн-стили по возможности."
+      },
+      {
+        "style": "Normal",
+        "text": "Перенести в CSS (классы .header-center, .title и т.п.)."
+      },
+      {
+        "style": "Normal",
+        "text": "Скрипты"
+      },
+      {
+        "style": "Normal",
+        "text": "Удалить type=\"text/javascript\"; оставить просто <script>."
+      },
+      {
+        "style": "Normal",
+        "text": "P2 — Наведение порядка"
+      },
+      {
+        "style": "Normal",
+        "text": "Слэши у void-элементов"
+      },
+      {
+        "style": "Normal",
+        "text": "В шаблонах/чанках MODX убрать /> у meta/link/br/img."
+      },
+      {
+        "style": "Normal",
+        "text": "Форматирование кода"
+      },
+      {
+        "style": "Normal",
+        "text": "Прогнать автоформатер (Prettier c плагином для HTML) — единые отступы/переносы, проще сопровождать."
+      },
+      {
+        "style": "Normal",
+        "text": "Короткие примеры правок"
+      },
+      {
+        "style": "Normal",
+        "text": "Было (img):"
+      },
+      {
+        "style": "Normal",
+        "text": "<img data-src=\"/assets/.../image.webp\" alt=\"...\" class=\"lazyload\">"
+      },
+      {
+        "style": "Normal",
+        "text": "Стало:"
+      },
+      {
+        "style": "Normal",
+        "text": "<img src=\"/img/placeholder.webp\""
+      },
+      {
+        "style": "Normal",
+        "text": "     data-src=\"/assets/.../image.webp\""
+      },
+      {
+        "style": "Normal",
+        "text": "     alt=\"...\""
+      },
+      {
+        "style": "Normal",
+        "text": "     class=\"lazyload\""
+      },
+      {
+        "style": "Normal",
+        "text": "     loading=\"lazy\""
+      },
+      {
+        "style": "Normal",
+        "text": "     width=\"228\" height=\"228\">"
+      },
+      {
+        "style": "Normal",
+        "text": "<noscript><img src=\"/assets/.../image.webp\" alt=\"...\" width=\"228\" height=\"228\"></noscript>"
+      },
+      {
+        "style": "Normal",
+        "text": "Было (форма):"
+      },
+      {
+        "style": "Normal",
+        "text": "<input placeholder=\"Количество*\" type=\"number\" min=\"\" name=\"count\" value=\"\"/>"
+      },
+      {
+        "style": "Normal",
+        "text": "Стало:"
+      },
+      {
+        "style": "Normal",
+        "text": "<input type=\"number\" name=\"count\" placeholder=\"Количество*\" min=\"1\" step=\"1\" required>"
+      },
+      {
+        "style": "Normal",
+        "text": "Было (label + spam):"
+      },
+      {
+        "style": "Normal",
+        "text": "<label><spam>Даю согласие</spam><input type=\"checkbox\" name=\"agree\"></label>"
+      },
+      {
+        "style": "Normal",
+        "text": "Стало:"
+      },
+      {
+        "style": "Normal",
+        "text": "<input id=\"agree\" type=\"checkbox\" name=\"agree\" required>"
+      },
+      {
+        "style": "Normal",
+        "text": "<label for=\"agree\"><span>Даю согласие</span></label>"
+      },
+      {
+        "style": "Normal",
+        "text": "Было (ul внутри span):"
+      },
+      {
+        "style": "Normal",
+        "text": "<span class=\"submenu-title\">Коробки"
+      },
+      {
+        "style": "Normal",
+        "text": "  <ul class=\"sm-catalog-ul-2\">...</ul>"
+      },
+      {
+        "style": "Normal",
+        "text": "</span>"
+      },
+      {
+        "style": "Normal",
+        "text": "Стало:"
+      },
+      {
+        "style": "Normal",
+        "text": "<div class=\"submenu\">"
+      },
+      {
+        "style": "Normal",
+        "text": "  <span class=\"submenu-title\">Коробки</span>"
+      },
+      {
+        "style": "Normal",
+        "text": "  <ul class=\"sm-catalog-ul-2\">...</ul>"
+      },
+      {
+        "style": "Normal",
+        "text": "</div>"
+      },
+      {
+        "style": "Normal",
+        "text": "Было (font/align):"
+      },
+      {
+        "style": "Normal",
+        "text": "<div class=\"header-center\" align=\"center\">"
+      },
+      {
+        "style": "Normal",
+        "text": "  <font size=\"30\" color=\"#960000\" face=\"Arial\"><span align=\"center\" style=\"font-weight:bold\">Внимание</span>"
+      },
+      {
+        "style": "Normal",
+        "text": "Стало:"
+      },
+      {
+        "style": "Normal",
+        "text": "<div class=\"header-center\">"
+      },
+      {
+        "style": "Normal",
+        "text": "  <span class=\"title\">Внимание</span>"
+      },
+      {
+        "style": "Normal",
+        "text": "</div>"
+      },
+      {
+        "style": "Normal",
+        "text": "CSS:"
+      },
+      {
+        "style": "Normal",
+        "text": ".header-center { text-align: center; }"
+      },
+      {
+        "style": "Normal",
+        "text": ".title { font: 700 30px/1.2 Arial, sans-serif; color: #960000; }"
+      },
+      {
+        "style": "Normal",
+        "text": "Проверки после правок"
+      },
+      {
+        "style": "Normal",
+        "text": "Прогнать страницу в валидатор снова — ошибок P0/P1 быть не должно."
+      },
+      {
+        "style": "Normal",
+        "text": "Пройтись клавиатурой по меню и формам (Tab/Shift+Tab)."
+      },
+      {
+        "style": "Normal",
+        "text": "Lighthouse: проверить SEO, Best Practices, Accessibility; CLS не должен расти после добавления width/height у <img>."
+      }
+    ],
+    "tables": []
+  },
+  "Кузнецов Рекомендации_m_trud_ru_по_Google_PageSpeed_Insights (2).docx": {
+    "type": "docx",
+    "paragraphs": [
+      {
+        "style": "Heading 1",
+        "text": "Рекомендации m-trud.ru по Google PageSpeed Insights"
+      },
+      {
+        "style": "Normal",
+        "text": "Краткие рекомендации по PageSpeed [m-trud.ru]"
+      },
+      {
+        "style": "Normal",
+        "text": "Критические ошибки (устранить обязательно):"
+      },
+      {
+        "style": "Normal",
+        "text": "Высокое CLS (Cumulative Layout Shift, 0.52) — элементы скачут при загрузке."
+      },
+      {
+        "style": "Normal",
+        "text": "LCP (Largest Contentful Paint) — крупный контент загружается слишком поздно (4,2 секунды)."
+      },
+      {
+        "style": "Normal",
+        "text": "Нет размеров у изображений."
+      },
+      {
+        "style": "Normal",
+        "text": "Избыточные размеры и низкая оптимизация картинок."
+      },
+      {
+        "style": "Normal",
+        "text": "Блокирующий CSS/JS, долгая загрузка основного скрипта (scripts_...js)."
+      },
+      {
+        "style": "Normal",
+        "text": "Неиспользуемый CSS и JS на странице."
+      },
+      {
+        "style": "Normal",
+        "text": "Не выставлены долгие сроки кеширования для собственных статики и метрик."
+      },
+      {
+        "style": "Normal",
+        "text": "Ошибки в консоли браузера (404), проблемы с загрузкой ресурсов."
+      },
+      {
+        "style": "Normal",
+        "text": "Нет современных заголовков защиты (CSP, COOP, X-Frame-Options, HSTS)."
+      },
+      {
+        "style": "Normal",
+        "text": "Ошибки средней важности:"
+      },
+      {
+        "style": "Normal",
+        "text": "Нет preconnect/preload для внешних ресурсов."
+      },
+      {
+        "style": "Normal",
+        "text": "Отложенная/ленивая загрузка изображений настроена не оптимально."
+      },
+      {
+        "style": "Normal",
+        "text": "Слишком крупные картинки по отношению к контейнерам."
+      },
+      {
+        "style": "Normal",
+        "text": "Сторонний код Яндекс.Метрика занимает много процессорного времени."
+      },
+      {
+        "style": "Normal",
+        "text": "JS-библиотеки устаревшие (jQuery 1.9.1)."
+      },
+      {
+        "style": "Normal",
+        "text": "Мелкие:"
+      },
+      {
+        "style": "Normal",
+        "text": "Некорректные CSS-свойства в :after, :before."
+      },
+      {
+        "style": "Normal",
+        "text": "Маленькие кликабельные области на мобильных."
+      },
+      {
+        "style": "Normal",
+        "text": "Проблемы с доступностью: alt у картинок, структура списков, нет main."
+      },
+      {
+        "style": "Heading 1",
+        "text": ""
+      },
+      {
+        "style": "Heading 1",
+        "text": "ТЗ для программиста: оптимизация и порядок работ"
+      },
+      {
+        "style": "Normal",
+        "text": "Итого:"
+      },
+      {
+        "style": "Normal",
+        "text": "Ключевой упор: размеры и оптимизация картинок, порядок загрузки стилей/скриптов, резервирование места для контента, минорный CSS/JS рефакторинг, плюс работы по безопасности."
+      },
+      {
+        "style": "Normal",
+        "text": "Сначала: исправить CLS/LCP/ошибки загрузки и кешировать всё статичное."
+      },
+      {
+        "style": "Normal",
+        "text": "После: глубокая оптимизация, адаптив и проверка на мобилках/доступность."
+      }
+    ],
+    "tables": [
+      [
+        [
+          "Приоритет",
+          "Задача",
+          "Пояснения и действия"
+        ],
+        [
+          "1",
+          "Исправить CLS",
+          "Всегда указывать width/height для всех <img>, фиксировать размеры контейнеров через CSS, убрать появление крупных элементов без резервирования места."
+        ],
+        [
+          "1",
+          "Оптимизация LCP/FCP",
+          "Главные изображения (баннер, товар) — показывать сразу, не через lazyload. Добавить fetchpriority=\"high\" на LCP-изображения."
+        ],
+        [
+          "1",
+          "Минификация и асинхронная загрузка JS/CSS",
+          "Минимизировать и объединить CSS/JS, вынести критический CSS inline, весь остальной — загрузка async/defer. Проверить точку входа в bundle. Удалить неиспользуемый фрагмент из библиотек (camera.js, owl.carousel.js, lightgallery.js и т.д.)"
+        ],
+        [
+          "1",
+          "Оптимизация картинок",
+          "Перегенерировать изображения под размеры контейнеров, сжать их в WebP, уменьшить качество без полной потери. Для LCP и основных карточек подбирать размер максимально близко к видимому."
+        ],
+        [
+          "1",
+          "Исправить ошибки 404 в консоли",
+          "Построить карту ресурсов, проверить актуальность путей (особенно для /undefined?176... и пути к css/js)."
+        ],
+        [
+          "2",
+          "Долгосрочный кеш (cache-control, expires)",
+          "Для css/js/img/webp и яндекс-метрика tag.js в .htaccess nginx добавить max-age=31536000 для неизменяемых файлов, а метрику, если возможно, — max-age=6h+."
+        ],
+        [
+          "2",
+          "Добавить preconnect/preload",
+          "Ключевые шрифты, метрика, карты — через <link rel=\"preconnect\">, <link rel=\"preload\">."
+        ],
+        [
+          "2",
+          "Lazyload",
+          "Перенастроить ленивую загрузку так, чтобы исключения делались для above-the-fold блоков и ключевых картинок."
+        ],
+        [
+          "2",
+          "Мелкий refactoring JS/CSS",
+          "Переписать/обновить устаревшие скрипты, убрать полифилы для старых браузеров, если поддержка не требуется, проверить работу слайдеров и галерей."
+        ],
+        [
+          "2",
+          "Адаптация размеров областей (моб.)",
+          "Увеличить кликабельные зоны для кнопок и ссылок, добавить min-height/width для мобильных."
+        ],
+        [
+          "2",
+          "Исправить структуру списков и alt у изображений",
+          "Везде alt, пересмотреть разметку списков и добавить <main>."
+        ],
+        [
+          "3",
+          "Актуализировать заголовки безопасности",
+          "Настроить Content-Security-Policy (CSP), X-Frame-Options (SAMEORIGIN), HSTS, COOP."
+        ],
+        [
+          "3",
+          "Пересмотреть сторонний JS",
+          "Минимизировать сторонний код, выгрузить аналитку асинхронно"
+        ]
+      ]
+    ]
+  },
+  "2026 04 проработка от программистов.xlsx": {
+    "type": "xlsx",
+    "sheets": {
+      "аналитика": [
+        [
+          null,
+          "подробный аудит m-trud.ru (MODX)",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          "1) Executive summary (что критично прямо сейчас)",
+          null
+        ],
+        [
+          null,
+          "Общее:",
+          null
+        ],
+        [
+          1,
+          "Подтвержден целевой performance‑уровень mobile около 46–47/100 (Lighthouse mobile: 47).",
+          null
+        ],
+        [
+          2,
+          "Найдены проблемы URL‑канонизации/склеек: // и index.php?q= участвуют в редиректных цепочках, а параметр ?q= дает 404; часть трекинг‑параметров отдается 200 и раздувает crawl‑мусор.",
+          "найдена причина склейки урлов"
+        ],
+        [
+          3,
+          "В manager виден security warning по MODX Login Extra PHP Object Injection (высокий риск; требует срочного обновления соответствующего extra/компонента).",
+          null
+        ],
+        [
+          4,
+          "Обнаружен фронтовый “мусор”: 19 внешних скриптов, 11 inline script‑блоков, 4 блокирующих скрипта без defer/async, 3 ссылки с пробелами в href, невалидный тег <spam> в шаблоне.",
+          null
+        ],
+        [
+          5,
+          "Изображения: lazy активно используется, но на главной у всех img отсутствуют явные width/height; есть пропуски alt; нативный loading=\"lazy\" не используется на главной.",
+          null
+        ],
+        [
+          6,
+          "Микроразметка присутствует, но требует консистентной ревизии по типам страниц и унификации форматов schema.",
+          null
+        ],
+        [
+          7,
+          "robots/sitemap требуют санитарной чистки: дубли директив, конфликтные правила по query, главная отсутствует в sitemap.",
+          null
+        ],
+        [
+          null,
+          "Подробнее",
+          null
+        ],
+        [
+          null,
+          "2) Что проверено в браузере (с доступом в админку)",
+          null
+        ],
+        [
+          null,
+          "Проверено вручную:",
+          null
+        ],
+        [
+          null,
+          "Главная сайта загружается.",
+          null
+        ],
+        [
+          null,
+          "Вход в https://m-trud.ru/manager/ по вашим данным успешный.",
+          null
+        ],
+        [
+          null,
+          "Доступны разделы Elements (Templates/Chunks/Snippets/Plugins).",
+          null
+        ],
+        [
+          null,
+          "Шаблоны содержат inline HTML/CSS/JS (пример в CardTpl_slider).",
+          null
+        ],
+        [
+          null,
+          "В системных настройках кэша видно, что часть кэшей включена, но cache_db отключен (важный performance‑фактор).",
+          null
+        ],
+        [
+          null,
+          "На dashboard manager отображается security‑предупреждение по уязвимости login extra.",
+          null
+        ],
+        [
+          null,
+          "3) 404, склейки URL, боты/мусорный трафик",
+          null
+        ],
+        [
+          null,
+          "Факты",
+          null
+        ],
+        [
+          null,
+          "Прогон внутреннего linkcheck: 1811 внутренних ссылок, битых среди проверенных не найдено (broken_count=0).",
+          null
+        ],
+        [
+          null,
+          "Пробы аномальных URL:",
+          null
+        ],
+        [
+          null,
+          "/production/paper-bags//  на  301 на index.php?q=...",
+          null
+        ],
+        [
+          null,
+          "/production//paper-bags  на 301 на index.php?q=...",
+          null
+        ],
+        [
+          null,
+          "/index.php?q=production/paper-bags  на 301 на clean URL",
+          null
+        ],
+        [
+          null,
+          "/production/paper-bags?q=abc  на  404",
+          null
+        ],
+        [
+          null,
+          "/?utm_source=..., /?ysclid=..., /?fbclid=... на  200",
+          null
+        ],
+        [
+          null,
+          "Это объясняет ситуацию “в Метрике есть 404/мусор”, даже когда базовые страницы рабочие.",
+          null
+        ],
+        [
+          null,
+          "Риск",
+          null
+        ],
+        [
+          null,
+          "Дубли URL‑сущностей, лишние редиректы, рост crawl budget на шум.",
+          null
+        ],
+        [
+          null,
+          "Раздувание отчетов Метрики бот‑/параметрическим трафиком.",
+          null
+        ],
+        [
+          null,
+          "Что проверить в Метрике (точечные отчеты)",
+          null
+        ],
+        [
+          null,
+          "Отчет по URL c regex‑группировкой:",
+          null
+        ],
+        [
+          null,
+          "index\\.php\\?q=",
+          null
+        ],
+        [
+          null,
+          "//",
+          null
+        ],
+        [
+          null,
+          "\\?.*",
+          null
+        ],
+        [
+          null,
+          "Сегменты:",
+          null
+        ],
+        [
+          null,
+          "боты / не боты (по user-agent, аномальным сессиям, глубине и времени).",
+          null
+        ],
+        [
+          null,
+          "404‑отчет:",
+          null
+        ],
+        [
+          null,
+          "отдельно выделить ?q= и случайные query‑хвосты.",
+          null
+        ],
+        [
+          null,
+          "Landing Pages + источники:",
+          null
+        ],
+        [
+          null,
+          "доля параметрических заходов и их отказов.",
+          null
+        ],
+        [
+          null,
+          "4) Performance (почему около 46/100 и что тормозит)",
+          null
+        ],
+        [
+          null,
+          "Подтвержденные метрики",
+          null
+        ],
+        [
+          null,
+          "Mobile:",
+          null
+        ],
+        [
+          null,
+          "Performance: 47",
+          null
+        ],
+        [
+          null,
+          "FCP: 2.9s",
+          null
+        ],
+        [
+          null,
+          "LCP: 6.2s",
+          null
+        ],
+        [
+          null,
+          "TTI: 7.1s",
+          null
+        ],
+        [
+          null,
+          "CLS: 0.519 (критично высокий)",
+          null
+        ],
+        [
+          null,
+          "Desktop:",
+          null
+        ],
+        [
+          null,
+          "Performance: 80",
+          null
+        ],
+        [
+          null,
+          "FCP: 1.7s",
+          null
+        ],
+        [
+          null,
+          "LCP: 1.8s",
+          null
+        ],
+        [
+          null,
+          "Ключевые причины",
+          null
+        ],
+        [
+          null,
+          "4 блокирующих скрипта без defer/async:",
+          null
+        ],
+        [
+          null,
+          "assets/minifyx/js/scripts_p4f0c613bd6.js",
+          null
+        ],
+        [
+          null,
+          "/js/jquery.mobile.customized.min.js",
+          null
+        ],
+        [
+          null,
+          "js/lazyload.min.js",
+          null
+        ],
+        [
+          null,
+          "/assets/components/ajaxform/js/default.js",
+          null
+        ],
+        [
+          null,
+          "Избыточный legacy JS‑стек (много плагинов и отдельных файлов).",
+          null
+        ],
+        [
+          null,
+          "Нерациональный CSS/JS footprint (Lighthouse показывает unused CSS/JS).",
+          null
+        ],
+        [
+          null,
+          "Высокий CLS (в т.ч. из‑за отсутствия фиксированных размеров изображений).",
+          null
+        ],
+        [
+          null,
+          "5) Мусор в шаблонах / фронт‑архитектура",
+          null
+        ],
+        [
+          null,
+          "Подтверждено",
+          null
+        ],
+        [
+          null,
+          "Внешних scripts: 19",
+          null
+        ],
+        [
+          null,
+          "Inline scripts: 11",
+          null
+        ],
+        [
+          null,
+          "DOM nodes на главной: 1164",
+          null
+        ],
+        [
+          null,
+          "Inline style‑элементов: 38",
+          null
+        ],
+        [
+          null,
+          "href с пробелами: 3 случая:",
+          null
+        ],
+        [
+          null,
+          "production/boxes ",
+          null
+        ],
+        [
+          null,
+          "production/for-product-sample ",
+          null
+        ],
+        [
+          null,
+          "production/papki ",
+          null
+        ],
+        [
+          null,
+          "Невалидный HTML: тег <spam> (обнаружен на главной)",
+          null
+        ],
+        [
+          null,
+          "Вывод",
+          null
+        ],
+        [
+          null,
+          "Шаблоны перегружены inline‑логикой, что усложняет поддержку и кэширование.",
+          null
+        ],
+        [
+          null,
+          "Есть явные “гигиенические” дефекты разметки.",
+          null
+        ],
+        [
+          null,
+          "6) Изображения (WebP/JPG/lazy-load)",
+          null
+        ],
+        [
+          null,
+          "Что есть",
+          null
+        ],
+        [
+          null,
+          "По краулингу: img_total=3253, webp_refs=2458, jpg_refs=208, img_lazy_refs=2367.",
+          null
+        ],
+        [
+          null,
+          "То есть WebP и lazy реально используются.",
+          null
+        ],
+        [
+          null,
+          "Что плохо",
+          null
+        ],
+        [
+          null,
+          "На главной:",
+          null
+        ],
+        [
+          null,
+          "36/36 без явных width/height",
+          null
+        ],
+        [
+          null,
+          "3 без alt",
+          null
+        ],
+        [
+          null,
+          "loading=\"lazy\" не используется нативно (lazy в основном через класс/JS)",
+          null
+        ],
+        [
+          null,
+          "Это бьет по CLS и стабильности рендера.",
+          null
+        ],
+        [
+          null,
+          "7) Микроразметка",
+          null
+        ],
+        [
+          null,
+          "Что найдено",
+          null
+        ],
+        [
+          null,
+          "JSON‑LD на главной: типы SiteNavigationElement, Organization.",
+          null
+        ],
+        [
+          null,
+          "Microdata активна (itemscope много, включая Product/AggregateOffer/Review).",
+          null
+        ],
+        [
+          null,
+          "Риски",
+          null
+        ],
+        [
+          null,
+          "Разметка разнородная (часть JSON‑LD, часть microdata) и потенциально неоднородна по шаблонам.",
+          null
+        ],
+        [
+          null,
+          "Нужен регулярный валидатор‑контур (Rich Results Test + schema consistency checks) на типовых страницах: главная, категория, карточка, инфо.",
+          null
+        ],
+        [
+          null,
+          "8) robots/sitemap",
+          null
+        ],
+        [
+          null,
+          "robots.txt",
+          null
+        ],
+        [
+          null,
+          "Большой, дублирующийся (много повторов директив).",
+          null
+        ],
+        [
+          null,
+          "Есть конфликтная логика:",
+          null
+        ],
+        [
+          null,
+          "Disallow: /*? + Allow: /*?v=*",
+          null
+        ],
+        [
+          null,
+          "Allow: /*.webp есть для Yandex, но не для User-Agent: *.",
+          null
+        ],
+        [
+          null,
+          "sitemap.xml",
+          null
+        ],
+        [
+          null,
+          "Всего URL: 1341.",
+          null
+        ],
+        [
+          null,
+          "Выборочно проверено 800 — все 200 OK.",
+          null
+        ],
+        [
+          null,
+          "Главная страница отсутствует в sitemap.",
+          null
+        ],
+        [
+          null,
+          "164 URL имеют lastmod до 2020 (кандидаты на ревизию).",
+          null
+        ],
+        [
+          null,
+          "9) Security/платформа (из manager)",
+          null
+        ],
+        [
+          null,
+          "На dashboard зафиксирован security warning по MODX Login Extra PHP Object Injection.",
+          null
+        ],
+        [
+          null,
+          "Это приоритет P0/P1: проверить установленную версию extra и обновить до исправленной.",
+          null
+        ],
+        [
+          null,
+          "Дополнительно: провести ревизию MODX core/extra на актуальные патчи безопасности.",
+          null
+        ]
+      ],
+      "план работ": [
+        [
+          null,
+          "наименование",
+          "стоимость"
+        ],
+        [
+          null,
+          "Этап P0 (срочно: безопасность + целостность URL) ",
+          15000
+        ],
+        [
+          null,
+          "Обновить уязвимый login extra до версии с фиксами.",
+          null
+        ],
+        [
+          null,
+          "Ввести единую URL‑политику на уровне nginx/MODX:",
+          null
+        ],
+        [
+          null,
+          "схлопывание //  на  /",
+          null
+        ],
+        [
+          null,
+          "301 index.php?q=*  на   canonical clean URL",
+          null
+        ],
+        [
+          null,
+          "единая trailing‑slash политика",
+          null
+        ],
+        [
+          null,
+          "Жестко определить canonical для query‑URL:",
+          null
+        ],
+        [
+          null,
+          "либо 301 на канонический URL,",
+          null
+        ],
+        [
+          null,
+          "либо canonical + noindex для тех, что должны жить.",
+          null
+        ],
+        [
+          null,
+          "Этап P1 (performance baseline и чистка фронта) ",
+          15000
+        ],
+        [
+          null,
+          "Добавить defer к 4 блокирующим скриптам (или убрать/пересобрать).",
+          null
+        ],
+        [
+          null,
+          "Вынести inline JS/CSS из шаблонов в версионированные ассеты.",
+          null
+        ],
+        [
+          null,
+          "Провести инвентаризацию legacy JS‑плагинов:",
+          null
+        ],
+        [
+          null,
+          "удалить неиспользуемые,",
+          null
+        ],
+        [
+          null,
+          "объединить в 1–2 бандла.",
+          null
+        ],
+        [
+          null,
+          "Добавить фиксированные размеры ключевым изображениям (width/height) для снижения CLS.",
+          null
+        ],
+        [
+          null,
+          "Исправить гигиенические дефекты:",
+          null
+        ],
+        [
+          null,
+          "<spam>  на <span>",
+          null
+        ],
+        [
+          null,
+          "удалить пробелы в href.",
+          null
+        ],
+        [
+          null,
+          "Включить и проверить DB cache в MODX (с тестом инвалидации/очистки).",
+          null
+        ],
+        [
+          null,
+          "Убедиться, что статика отдается с долгим Cache-Control:",
+          null
+        ],
+        [
+          null,
+          "public, max-age=31536000, immutable для версионированных CSS/JS.",
+          null
+        ],
+        [
+          null,
+          "Этап P2 (изображения, schema, robots/sitemap) ",
+          8000
+        ],
+        [
+          null,
+          "Lazy‑loading стандартизовать на нативный loading=\"lazy\" + decoding=\"async\" там, где уместно.",
+          null
+        ],
+        [
+          null,
+          "Для LCP‑изображения:",
+          null
+        ],
+        [
+          null,
+          "preload/fetchpriority high,",
+          null
+        ],
+        [
+          null,
+          "контроль размеров и форматов.",
+          null
+        ],
+        [
+          null,
+          "Микроразметка:",
+          null
+        ],
+        [
+          null,
+          "унифицировать формат (предпочтительно JSON‑LD),",
+          null
+        ],
+        [
+          null,
+          "валидировать шаблоны homepage/category/product/article.",
+          null
+        ],
+        [
+          null,
+          "robots.txt:",
+          null
+        ],
+        [
+          null,
+          "убрать дубли,",
+          null
+        ],
+        [
+          null,
+          "упростить правила query‑параметров,",
+          null
+        ],
+        [
+          null,
+          "синхронизировать правила между UA-группами.",
+          null
+        ],
+        [
+          null,
+          "sitemap:",
+          null
+        ],
+        [
+          null,
+          "добавить главную,",
+          null
+        ],
+        [
+          null,
+          "пересмотреть старые/thin URL, актуализировать lastmod.",
+          null
+        ],
+        [
+          null,
+          "Этап P3 (контроль качества и наблюдаемость) ",
+          3000
+        ],
+        [
+          null,
+          "Регламентный Lighthouse (mobile/desktop) по расписанию.",
+          null
+        ],
+        [
+          null,
+          "Метрика дашборды:",
+          null
+        ],
+        [
+          null,
+          "404 по шаблонам,",
+          null
+        ],
+        [
+          null,
+          "доля параметрических URL,",
+          null
+        ],
+        [
+          null,
+          "bot/no-bot.",
+          null
+        ],
+        [
+          null,
+          "Чек‑лист релиза шаблонов:",
+          null
+        ],
+        [
+          null,
+          "no inline garbage,",
+          null
+        ],
+        [
+          null,
+          "no malformed href,",
+          null
+        ],
+        [
+          null,
+          "schema валидна,",
+          null
+        ],
+        [
+          null,
+          "cache headers корректны.",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          "11) Ожидаемый эффект (реалистично)",
+          41000
+        ],
+        [
+          null,
+          "Mobile performance: с ~46–47 до ~65–80 (зависит от глубины фронт‑чистки).",
+          null
+        ],
+        [
+          null,
+          "CLS: существенное снижение после размеров изображений и стабилизации блоков.",
+          null
+        ],
+        [
+          null,
+          "Снижение 404‑шума в Метрике по URL‑паттернам (?q=, //, parameter junk).",
+          null
+        ]
+      ],
+      "доп вопросы": [
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          1,
+          "на каком этапе исправляется ситуация с Canonical? Не увидела про это.",
+          "подробнее"
+        ],
+        [
+          2,
+          "уязвимость доступа в админскую панель",
+          "подробнее"
+        ],
+        [
+          3,
+          "html ошибки",
+          "см фаил"
+        ],
+        [
+          null,
+          "Это мне когда-то давали рекомендации.",
+          null
+        ],
+        [
+          null,
+          "Они совпадают с вашей информацией?",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          4,
+          "Рекомендации m-trud.ru по Google PageSpeed Insights",
+          "см фаил"
+        ],
+        [
+          null,
+          "Это мне когда-то давали рекомендации.",
+          null
+        ],
+        [
+          null,
+          "Они совпадают с вашей информацией?",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          4,
+          "будет создан новый robots.txt?",
+          null
+        ],
+        [
+          null,
+          "мне когда-то рекомендовали:",
+          null
+        ],
+        [
+          null,
+          "Не добавлять в robots.txt директивы на запрет краулинга для страниц, закрываемых от индекса.",
+          null
+        ],
+        [
+          null,
+          "Закрытие от индекса производить с помощью метатега robots в HTML-коде страницы в элементе head ",
+          null
+        ],
+        [
+          null,
+          "<meta name=\"robots\" content=\"noindex, nofollow\" />",
+          null
+        ],
+        [
+          null,
+          "это нормально?",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          5,
+          "боковое меню:",
+          null
+        ],
+        [
+          null,
+          "когда я нажимаю на подразделы в боковом меню, то меню остаётся развернутым",
+          null
+        ],
+        [
+          null,
+          "например:",
+          null
+        ],
+        [
+          null,
+          "подраздел - конструкции коробок",
+          null
+        ],
+        [
+          null,
+          "я нажимаю на - на магните, перехожу на данную страницу и меню остаётся развернутым",
+          null
+        ],
+        [
+          null,
+          "это корректно",
+          null
+        ],
+        [
+          null,
+          "но это не у всех страниц",
+          null
+        ],
+        [
+          null,
+          "страницы, при нажатии на которых в боковом меню оно сворачивается обратно:",
+          null
+        ],
+        [
+          null,
+          "это некорректно",
+          null
+        ],
+        [
+          null,
+          "конструкции:",
+          null
+        ],
+        [
+          null,
+          "оригинальные",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          "по материалу:",
+          null
+        ],
+        [
+          null,
+          "крафт",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          "с ложементом:",
+          null
+        ],
+        [
+          null,
+          "бумага тишью",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          "для подарков:",
+          null
+        ],
+        [
+          null,
+          "для посуды и стекла",
+          null
+        ],
+        [
+          null,
+          "для свечей",
+          null
+        ],
+        [
+          null,
+          "для сухофруктов",
+          null
+        ],
+        [
+          null,
+          "для фудфлористики",
+          null
+        ],
+        [
+          null,
+          "для welcome pack",
+          null
+        ],
+        [
+          null,
+          "для маркетплейсов",
+          null
+        ],
+        [
+          null,
+          "для электронники и гаджетов",
+          null
+        ]
+      ],
+      "Canonical": [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          "2) Отсутствие атрибута Canonical у страниц сайта"
+        ],
+        [
+          null,
+          "Что обнаружено?"
+        ],
+        [
+          null,
+          "На многих страницах сайта, например, на главной странице сайта - обнаружено отсутствие важного атрибута Canonical."
+        ],
+        [
+          null,
+          "Вкратце о Canonical"
+        ],
+        [
+          null,
+          "Использование атрибута rel=\"canonical\" помогает вебмастерам избавиться от дублирующего контента. Подробнее можно прочитать, например, у Google: https://developers.google.com/search/docs/advanced/crawling/consolidate-duplicate-urls"
+        ],
+        [
+          null,
+          "Отсутствие Canonical на страницах – это серьезная ошибка, как раз и дающая возможность атаки на сайт. Атака создаёт дубли страниц с целью понизить поисковые позиции сайта."
+        ],
+        [
+          null,
+          "Возьмем для примера главную страницу анализируемого сайта."
+        ],
+        [
+          null,
+          "Главная страница открывается по множеству любых адресов, например:"
+        ],
+        [
+          null,
+          "1. https://m-trud.ru/"
+        ],
+        [
+          null,
+          "2. https://m-trud.ru/?sex=porno"
+        ],
+        [
+          null,
+          "3. https://m-trud.ru/?cid=53463467"
+        ],
+        [
+          null,
+          "4. https://m-trud.ru/?free=11111"
+        ],
+        [
+          null,
+          "5. И т.д. Механизм атаки строится на создании искусственных дублей Конкурент (или злоумышленик) закупает на сторонних сайтах размещение ссылок или статей со ссылками. Только вместо ссылки на вашу настоящую страницу, ставится ссылка на копию с другим адресом, например, так: https://m-trud.ru/?cid=53463467 и т.д. Может много копий использоваться в атаке, штук 10-20 и т.д. (в зависимости от размеров бюджета атакующей стороны). Задача атакующей стороны состоит в том, чтобы поисковая система проиндексировала все копии атакуемой страницы. А затем все разом эти копии, вместе с реальной страницей сайта – все это, поисковик понижает или выбрасывает совсем из выдачи. И отсутствие атрибута Canonical – не дает возможности поисковику понять, какая из этих страниц единственно правильная. Для поисковика – это все дубли, страницы с разными адресами, но одинаковым контентом. Поисковики не любят дубли страниц. И начинают снижать «вес» всех обнаруженных копий. В итоге, настоящая страница сайта – начинает терять свой «вес» и видимость в поисковиках. Т.е. происходит снижение ранжирования страницы в поисковиках. Практика показывает, что вместе с потерей «веса» у отдельных страниц, поисковик, в частности Google – снижает «вес» и ухудшает ранжирование и для всего сайта."
+        ],
+        [
+          null,
+          "Как исправить? Прописать атрибут Canonical на всех страницах, где его нет."
+        ],
+        [
+          null,
+          null
+        ]
+      ],
+      "сео дырки": [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          "На сайте есть сео-дырки. Конкуренты могут атаковать с помощью Негативного SEO, чтобы \"завалить\" сайт, ухудшить его поисковую видимость и конверсию. ПО каким параметрам это видно? Что делать?"
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          "Обнаружил на вашем сайте пару дырок. Их и покажу. 1) Публичный доступ к админ-панели CMS"
+        ],
+        [
+          null,
+          "Что это?"
+        ],
+        [
+          null,
+          "Проверка публичного доступа к админ-панели CMS."
+        ],
+        [
+          null,
+          "Как используется в Негативном SEO? Действия после физического взлома. Если есть публичный доступ к админ-панели CMS, то всегда есть повышенный риск, что доступ будет взломан и недоброжелатели смогут проникнуть внутрь админ-панели CMS. А там, внутри, они смогут натворить массу плохих дел."
+        ],
+        [
+          null,
+          "Результаты проверки:"
+        ],
+        [
+          null,
+          "Плохо. Публичный доступ есть: https://m-trud.ru/manager/"
+        ],
+        [
+          null,
+          "К админке можно добраться из любого места в Интернет."
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          "В чем проблема?"
+        ],
+        [
+          null,
+          "Если есть публичный доступ ко входу в админ-панель CMS, то, путем перебора пары логин-пароль (например. с помощью ИИ) – рано или поздно, но злоумышленники взломают доступ и проникнут внутрь CMS. И там могут натворить много плохих дел."
+        ],
+        [
+          null,
+          "Как исправить? Есть несколько вариантов решения этой проблемы. Каждый из вариантов можно использовать по отдельности или оба вместе."
+        ],
+        [
+          null,
+          " 1. На данный момент для входа в админ-панель используется дефолтный (штатный) адрес. Нужно посмотреть возможность изменения в конфигурационном файле CMS вход в админку на другой адрес (известный только вам)."
+        ],
+        [
+          null,
+          "2. Также есть вариант с закрытием доступа к странице входа админки по ip-адресам. Т.е. разрешить доступ к этой странице не со всех ip-адресов (как сейчас), а только с ip-адресов избранных сотрудников. Для реализации такого подхода могут быть такие способы:  Если CMS имеет соответствующий плагин по безопасности, то установить и использовать его (это рекомендованный вариант)  Если сайт использует какой-то файерволл, то возможно, это можно реализовать там.  Если плагина (или файервола) нет, то ограничить доступ по ip-адресам можно известным способом - путем внесения запрещающих/разрешающих записей в файлик .htaccess (в интернете полно информации на эту тему, программист разберется). Программист или системный администратор должен определиться и выбрать приемлемый вариант. "
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          "3. И дополнительно: Удалить из файла robots.txt запись: Disallow: /manager/ Это лишняя подсказка для школьников, какой у вас адрес админки CMS."
+        ]
+      ]
+    }
+  }
+}
