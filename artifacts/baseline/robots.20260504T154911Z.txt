@@ -1,0 +1,221 @@
+User-Agent: *
+
+Allow: /*.js
+Allow: /*.css
+Allow: /*.woff
+Allow: /*.ttf
+Allow: /*.otf
+Allow: /*.png
+Allow: /*.PNG
+Allow: /*.jpg
+Allow: /*.JPG
+Allow: /*.gif
+Allow: /*.svg
+
+Allow: /assets/cache_image/*
+Allow: /assets/cache_image_product_3/*
+Allow: /assets/images/*
+Allow: /images/*
+Allow: /*?v=*
+
+Disallow: *.pdf$
+Disallow: *.doc$
+Disallow: *.docx$
+Disallow: *.xls$
+
+Disallow: /cgi-bin/
+Disallow: /manager/
+Disallow: /assets/components/
+Disallow: /core/
+Disallow: /connectors/
+Disallow: /tech/popup/*
+Disallow: /index.php?q=*
+
+Allow: /assets/components/ajaxform/css/
+Allow: /assets/components/ajaxform/js/
+Allow: /assets/components/gallery/packages/galleriffic20/css/
+Allow: /assets/components/gallery/packages/galleriffic20/js/
+
+Disallow: /*?
+Disallow: *?*ysclid=
+Disallow: *?*srsltid=
+Disallow: *?*utm_source=
+Disallow: *?*utm_medium=
+Disallow: *?*utm_campaign=
+Disallow: *?*utm_content=
+Disallow: *?*page=
+Disallow: *?*etext=
+Disallow: *?*ybaip=
+Disallow: *?*microtime=
+Disallow: *?*_ym_debug=
+Disallow: *?*anchor=
+Disallow: *?*fbclid=
+Disallow: *?*galAlbum=
+Disallow: *?*galItem=
+Disallow: *?*galTag=
+Disallow: *?*hl=
+Disallow: *?*block=
+Disallow: *?*fmode=
+Disallow: *?*hash=
+Disallow: *?*keyno=
+Disallow: *?*l10n=
+Disallow: *?*la=
+Disallow: *?*lang=
+Disallow: *?*mime=
+Disallow: *?*pageId=
+Disallow: *?*sign=
+Disallow: *?*text=
+Disallow: *?*tld=
+Disallow: *?*tm=
+Disallow: *?*url=
+Disallow: *?*clckid=
+Disallow: *?*ctime=
+Disallow: *?*erid=
+Disallow: *?*ylcyd=
+Disallow: *?*q=
+Disallow: /*qwerty123456=
+Disallow: *?*utm_ya_campaign=
+Disallow: *?*utm_referer=
+Disallow: *?*manager=
+Disallow: *?*utm_candidate=
+Disallow: *?*yprqee=
+Disallow: *?*gid=
+Disallow: *?*preview=
+Disallow: *?*_ym_debug=
+Disallow: *?*_thumbnail_id=
+Disallow: *?*customize_theme=
+Disallow: *?*customize_messenger_channel=
+Disallow: *?*pid=
+Disallow: *?*vc_editable=
+Disallow: *?*vc_post_id=
+Disallow: *?*preview_id=
+Disallow: *?*etext=
+Disallow: *?*preview_nonce=
+Disallow: *?*added=
+Disallow: *?*customize_autosaved=
+Disallow: *?*_vcnonce=
+Disallow: *?*source=
+Disallow: *?*block=
+Disallow: *?*erid=
+Disallow: *?*utm_referrer=
+Disallow: *?*ctime=
+Disallow: *?*customize_changeset_uuid=
+Disallow: *?*position=
+Disallow: *?*type=
+Disallow: *?*_ym_lang=
+Disallow: *?*page_id=
+Disallow: *?*_ym_status-check=
+Disallow: *?*cms_block=
+Disallow: *?*post_type=
+Disallow: *?*share_to=
+Disallow: *?*tab=
+Disallow: *?*actual-format=
+Disallow: *?*campaign_id=
+Disallow: *?*device=
+Disallow: *?*gtm_debug=
+Disallow: *?*oid=
+Disallow: *?*region=
+Disallow: *?*region_name=
+Disallow: *?*s=
+Disallow: *?*source_type=
+Disallow: *?*wprid=
+Disallow: *?*utm_content=
+Disallow: *?*utm_source=
+Disallow: *?*yabizcmpgn=
+Disallow: *?*yclid=
+Disallow: *?*asset-click=
+Disallow: *?*attempt=
+Disallow: *?*banner-sizes=
+Disallow: *?*banner-test-tags=
+Disallow: *?*baobab_event_id=
+Disallow: *?*click-time=
+Disallow: *?*clickX=
+Disallow: *?*clickY=
+Disallow: *?*constructor-rendered-assets=
+Disallow: *?*fbclid=
+Disallow: *?*file=
+Disallow: *?*from=
+Disallow: *?*height=
+Disallow: *?*icookie=
+Disallow: *?*o=
+Disallow: *?*order-banner-options=
+Disallow: *?*order-banners-options=
+Disallow: *?*p=
+Disallow: *?*partner-stat-id=
+Disallow: *?*pcode-active-testids=
+Disallow: *?*pcodever=
+Disallow: *?*rendered-direct-assets=
+Disallow: *?*src_pof=
+Disallow: *?*stat-id=
+Disallow: *?*t=
+Disallow: *?*target-ref=
+Disallow: *?*test-tag=
+Disallow: *?*theme=
+Disallow: *?*utm_source_service=
+Disallow: *?*width=
+Disallow: *?*wp_site_preview=
+Disallow: *?*z=
+
+
+User-Agent: Yandex
+
+Allow: /*.js
+Allow: /*.css
+Allow: /*.woff
+Allow: /*.ttf
+Allow: /*.otf
+Allow: /*.png
+Allow: /*.PNG
+Allow: /*.jpg
+Allow: /*.JPG
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+
+Allow: /assets/cache_image/*
+Allow: /assets/cache_image_product_3/*
+Allow: /assets/images/*
+Allow: /images/*
+Allow: /*?v=*
+
+Disallow: *.pdf$
+Disallow: *.doc$
+Disallow: *.docx$
+Disallow: *.xls$
+
+
+Disallow: /manager/
+Disallow: /assets/components/
+Disallow: /core/
+Disallow: /connectors/
+Disallow: /tech/popup/*
+Disallow: /index.php?q=*
+
+Allow: /assets/components/ajaxform/css/
+Allow: /assets/components/ajaxform/js/
+Allow: /assets/components/gallery/packages/galleriffic20/css/
+Allow: /assets/components/gallery/packages/galleriffic20/js/
+
+Clean-param: ysclid&srsltid&utm_source&utm_medium&utm_campaign&utm_content&page&etext&ybaip&microtime&_ym_debug&anchor&fbclid&galAlbum&galItem&galTag&hl&block&fmode&hash&keyno&l10n&la&lang&mime&pageId&sign&text&tld&tm&url&clckid&ctime&erid&ylcyd&q
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&openstat&from&test&sort&order&block&page
+Clean-param: sort&order /catalog/
+Clean-param: utm_ya_campaign&utm_referer&ybaip&manager&utm_candidate&yprqee&gid&preview&_ym_debug&_thumbnail_id&customize_theme&customize_messenger_channel&pid&vc_editable&vc_post_id&preview_id&etext&preview_nonce&added&customize_autosaved
+Clean-param: _vcnonce&source&block&erid&utm_referrer&ctime&customize_changeset_uuid&position&type&_ym_lang&page_id&_ym_status-check&cms_block&post_type&share_to&tab&actual-format&campaign_id&device&gtm_debug&oid&region&region_name&s
+Clean-param: source_type&wprid&utm_content&utm_source&yabizcmpgn&yclid&asset-click&attempt&banner-sizes&banner-test-tags&baobab_event_id&click-time&clickX&clickY&constructor-rendered-assets&fbclid&file&from&height&icookie&o
+Clean-param: order-banner-options&order-banners-options&p&partner-stat-id&pcode-active-testids&pcodever&rendered-direct-assets&src_pof&stat-id&t&target-ref&test-tag&theme&utm_source_service&width&wp_site_preview&z
+
+
+Crawl-delay: 2
+
+User-agent: Yanga
+Disallow: /
+
+User-agent: twiceler
+Disallow: /
+
+User-agent: Dolphin
+Disallow: /
+
+Sitemap: https://m-trud.ru/sitemap.xml
+
+

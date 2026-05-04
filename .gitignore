@@ -1,0 +1,7 @@
+# Server backups & DB dumps must NOT be committed (contain data)
+artifacts/baseline/server_backup/m_trud_ru*.sql.gz
+artifacts/baseline/server_backup/conf/
+artifacts/baseline/db/
+# MODX core/config contains DB password — never commit
+artifacts/**/core_config_inc.php
+artifacts/**/config.core.php
