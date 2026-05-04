@@ -1,0 +1,17 @@
+# >>> P1 gzip type extensions (cursor 2026-05-04) >>>
+gzip_min_length 1024;
+gzip_vary on;
+gzip_types
+    text/javascript
+    application/x-javascript
+    application/xml+rss
+    application/rss+xml
+    application/atom+xml
+    application/manifest+json
+    application/wasm
+    application/vnd.ms-fontobject
+    font/ttf
+    font/otf
+    font/woff
+    font/woff2;
+# <<< P1 gzip type extensions (cursor 2026-05-04) <<<
