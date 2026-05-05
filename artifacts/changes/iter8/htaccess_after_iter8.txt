@@ -1,0 +1,731 @@
+# MODX supports Friendly URLs via this .htaccess file. You must serve web
+# pages via Apache with mod_rewrite to use this functionality, and you must
+# change the file name from ht.access to .htaccess.
+#
+# Make sure RewriteBase points to the directory where you installed MODX.
+# E.g., "/modx" if your installation is in a "modx" subdirectory.
+#
+# You may choose to make your URLs non-case-sensitive by adding a NC directive
+# to your rule: RewriteRule ^(.*)$ index.php?q=$1 [L,QSA,NC]
+Order Allow,Deny
+Allow from all
+
+#подозрительные ip из логов
+Deny from 85.209.89.68
+Deny from 188.165.237.120
+Deny from 217.107.106.0/24
+Deny from 169.150.197.0/24
+Deny from 46.246.3.240
+Deny from 45.148.10.98
+Deny from 87.76.4.53
+Deny from 47.82.0.0/16
+Deny from 47.79.0.0/16
+Deny from 49.13.0.0/16
+Deny from 185.181.244.174
+Deny from 185.181.244.195
+Deny from 93.177.79.141
+Deny from 83.220.239.100
+Deny from 109.248.166.123
+Deny from 109.248.143.16
+Deny from 109.248.205.9
+Deny from 46.8.157.107
+Deny from 46.8.22.76
+Deny from 46.8.213.16
+Deny from 46.8.22.79
+Deny from 46.8.23.232
+Deny from 46.8.56.96
+Deny from 46.8.23.254
+Deny from 46.8.16.28
+Deny from 45.84.176.222
+Deny from 45.86.1.164
+Deny from 45.86.0.171
+Deny from 45.86.0.222
+Deny from 194.34.248.242
+Deny from 194.156.96.250
+Deny from 65.108.127.244
+Deny from 78.107.248.239
+Deny from 95.165.148.41
+
+# Biterika
+Deny from 31.40.203.0/24 
+Deny from 188.130.210.0/23 
+Deny from 188.130.188.0/23
+Deny from 188.130.136.0/23 
+Deny from 188.130.218.0/23 
+Deny from 109.248.12.0/23
+Deny from 109.248.14.0/23
+Deny from 109.248.204.0/23 
+
+# Biterika - AS35048
+Deny from 194.32.229.0/24
+Deny from 46.8.213.0/24
+Deny from 46.8.156.0/24
+Deny from 194.156.92.0/24
+Deny from 45.87.253.0/24
+Deny from 45.140.54.0/23
+Deny from 46.8.212.0/23
+Deny from 188.130.218.0/23
+Deny from 109.248.167.0/24
+Deny from 193.58.168.0/24
+Deny from 45.147.192.0/24
+Deny from 46.8.154.0/24
+Deny from 185.181.247.0/24
+Deny from 46.8.154.0/23
+Deny from 45.89.16.0/22
+Deny from 46.8.212.0/24
+Deny from 45.139.176.0/23
+Deny from 185.181.244.0/24
+Deny from 188.130.128.0/24
+Deny from 188.130.137.0/24
+Deny from 2a06:d647::/33
+Deny from 45.145.116.0/23
+Deny from 2a0e:cd40::/32
+Deny from 2a0a:b387:8000::/33
+Deny from 84.54.53.0/24
+Deny from 188.130.220.0/23
+Deny from 2a0b:2d87:8000::/33
+Deny from 45.134.253.0/24
+Deny from 46.8.110.0/24
+Deny from 109.248.55.0/24
+Deny from 2a0a:b387::/32
+Deny from 188.130.142.0/23
+Deny from 2a07:ca07:8000::/33
+Deny from 45.15.236.0/24
+Deny from 45.144.36.0/24
+Deny from 213.226.101.0/24
+Deny from 2a0e:8145::/32
+Deny from 188.130.210.0/24
+Deny from 109.248.14.0/23
+Deny from 2a0a:5687::/32
+Deny from 2a0e:cd41::/32
+Deny from 194.156.97.0/24
+Deny from 109.248.12.0/24
+Deny from 45.87.252.0/23
+Deny from 188.130.185.0/24
+Deny from 45.86.0.0/24
+Deny from 45.81.136.0/23
+Deny from 109.248.49.0/24
+Deny from 45.15.73.0/24
+Deny from 46.8.22.0/23
+Deny from 46.8.14.0/24
+Deny from 45.134.252.0/23
+Deny from 2a0a:b387::/33
+Deny from 188.130.142.0/24
+Deny from 194.156.96.0/24
+Deny from 45.15.72.0/23
+Deny from 45.81.137.0/24
+Deny from 46.8.16.0/23
+Deny from 45.15.237.0/24
+Deny from 45.134.180.0/22
+Deny from 188.130.211.0/24
+Deny from 2a0e:8140::/29
+Deny from 95.182.126.0/24
+Deny from 2a0e:8140::/32
+Deny from 188.130.219.0/24
+Deny from 188.130.136.0/23
+Deny from 46.8.56.0/24
+Deny from 188.130.129.0/24
+Deny from 194.156.96.0/23
+Deny from 2a0e:cd42::/32
+Deny from 2a0e:8143::/32
+Deny from 2a0a:5685::/32
+Deny from 109.248.205.0/24
+Deny from 188.130.184.0/23
+Deny from 45.142.253.0/24
+Deny from 45.90.196.0/24
+Deny from 46.8.192.0/24
+Deny from 46.8.11.0/24
+Deny from 2a06:d647:8000::/33
+Deny from 2a0e:8141::/32
+Deny from 109.248.142.0/24
+Deny from 109.248.142.0/23
+Deny from 45.15.72.0/24
+Deny from 45.15.236.0/23
+Deny from 109.248.204.0/23
+Deny from 188.130.136.0/24
+Deny from 2a0a:5680::/29
+Deny from 45.84.176.0/23
+Deny from 2a0e:cd47::/32
+Deny from 46.8.16.0/24
+Deny from 176.53.186.0/24
+Deny from 188.130.210.0/23
+Deny from 2a0b:2d87::/32
+Deny from 109.248.166.0/23
+Deny from 95.182.127.0/24
+Deny from 193.58.168.0/23
+Deny from 45.134.182.0/23
+Deny from 109.248.15.0/24
+Deny from 188.130.188.0/24
+Deny from 45.145.118.0/23
+Deny from 45.147.192.0/23
+Deny from 46.8.17.0/24
+Deny from 45.151.145.0/24
+Deny from 46.8.106.0/24
+Deny from 45.140.52.0/23
+Deny from 91.188.244.0/24
+Deny from 77.94.1.0/24
+Deny from 46.8.192.0/23
+Deny from 2a0b:2d87::/33
+Deny from 109.248.48.0/24
+Deny from 46.8.15.0/24
+Deny from 109.248.54.0/23
+Deny from 188.130.187.0/24
+Deny from 193.58.169.0/24
+Deny from 188.130.184.0/24
+Deny from 45.147.193.0/24
+Deny from 2a0a:5686::/32
+Deny from 45.11.20.0/23
+Deny from 188.130.128.0/23
+Deny from 46.8.23.0/24
+Deny from 185.181.246.0/24
+Deny from 45.145.116.0/22
+Deny from 45.142.252.0/24
+Deny from 94.158.190.0/24
+Deny from 46.8.222.0/24
+Deny from 95.182.124.0/24
+Deny from 46.8.107.0/24
+Deny from 46.8.222.0/23
+Deny from 45.135.32.0/24
+Deny from 188.130.186.0/23
+Deny from 95.182.124.0/23
+Deny from 2a0f:d006::/32
+Deny from 109.248.128.0/23
+Deny from 109.248.54.0/24
+Deny from 2a0a:5680::/32
+Deny from 2a0e:cd40::/29
+Deny from 2a0f:d002::/32
+Deny from 109.248.204.0/24
+Deny from 45.81.136.0/24
+Deny from 77.83.148.0/24
+Deny from 45.84.177.0/24
+Deny from 46.8.10.0/23
+Deny from 46.8.14.0/23
+Deny from 46.8.193.0/24
+Deny from 2a07:ca07::/33
+Deny from 192.144.31.0/24
+Deny from 46.8.157.0/24
+Deny from 188.130.186.0/24
+Deny from 188.130.188.0/23
+Deny from 188.130.221.0/24
+Deny from 2a0e:cd45::/32
+Deny from 109.248.138.0/23
+Deny from 185.181.245.0/24
+Deny from 185.181.244.0/23
+Deny from 2a06:d647::/32
+Deny from 77.83.149.0/24
+Deny from 95.182.125.0/24
+Deny from 45.135.33.0/24
+Deny from 46.8.188.0/24
+Deny from 46.8.223.0/24
+Deny from 45.89.16.0/23
+Deny from 109.248.48.0/23
+Deny from 2a0f:d003::/32
+Deny from 45.139.176.0/24
+Deny from 45.134.180.0/23
+Deny from 2a0f:d007::/32
+Deny from 46.8.22.0/24
+Deny from 2.59.50.0/24
+Deny from 2a0f:d000::/32
+Deny from 31.40.203.0/24
+Deny from 109.248.138.0/24
+Deny from 2a0f:d004::/32
+Deny from 77.83.148.0/23
+Deny from 46.8.57.0/24
+Deny from 109.248.12.0/23
+Deny from 45.86.0.0/23
+Deny from 212.115.49.0/24
+Deny from 2a07:ca07::/32
+Deny from 46.8.10.0/24
+Deny from 2a0e:cd43::/32
+Deny from 92.119.193.0/24
+Deny from 109.248.128.0/24
+Deny from 45.11.21.0/24
+Deny from 109.248.129.0/24
+Deny from 109.248.166.0/24
+Deny from 46.8.56.0/23
+Deny from 45.11.20.0/24
+Deny from 5.183.130.0/24
+Deny from 2a0f:d000::/29
+Deny from 2a0e:cd44::/32
+Deny from 45.87.252.0/24
+Deny from 2a0e:8147::/32
+Deny from 194.34.248.0/24
+Deny from 109.248.14.0/24
+Deny from 188.130.220.0/24
+Deny from 46.8.155.0/24
+Deny from 194.32.237.0/24
+Deny from 45.142.252.0/23
+Deny from 2a0f:d001::/32
+Deny from 45.140.52.0/22
+Deny from 185.181.246.0/23
+Deny from 2a0f:d005::/32
+Deny from 46.8.106.0/23
+Deny from 46.8.111.0/24
+Deny from 45.84.176.0/24
+Deny from 194.35.113.0/24
+Deny from 45.139.177.0/24
+Deny from 193.53.168.0/24
+Deny from 109.248.139.0/24
+Deny from 2a0e:cd46::/32
+Deny from 188.130.218.0/24
+Deny from 45.135.32.0/23
+Deny from 45.134.252.0/24
+Deny from 46.8.156.0/23
+Deny from 77.83.84.0/24
+Deny from 188.130.143.0/24
+Deny from 45.139.125.0/24
+Deny from 95.182.126.0/23
+Deny from 194.156.123.0/24
+Deny from 2a0a:5684::/32
+Deny from 2a0e:8142::/32
+Deny from 109.248.143.0/24
+Deny from 188.130.189.0/24
+Deny from 2a0e:8144::/32
+Deny from 109.248.13.0/24
+Deny from 45.86.1.0/24
+Deny from 2a0e:8146::/32
+#Racktech - AS204916
+Deny from 2a09:3804:2000::/36
+Deny from 2a09:bd85::/32
+Deny from 2a09:6f07::/32
+Deny from 2a0f:cc80::/29
+Deny from 2a09:3800::/32
+Deny from 2a09:bd84::/32
+Deny from 2a09:6f06::/32
+Deny from 2a11:68c4::/32
+Deny from 2a09:6f00::/32
+Deny from 2a0f:cc87:d000::/36
+Deny from 2a0d:3047::/32
+Deny from 2a0c:2100::/29
+Deny from 2a09:4e02::/32
+Deny from 2a11:780:7000::/36
+Deny from 2a11:206::/32
+Deny from 2a09:4e07:e000::/36
+Deny from 2a11:d80::/29
+Deny from 2a0a:3540::/29
+Deny from 2a09:400:c000::/36
+Deny from 2a11:b80:3000::/36
+Deny from 2a09:3505:1000::/36
+Deny from 2a09:a4c4::/32
+Deny from 2a09:bd82::/32
+Deny from 2a09:6f04::/32
+Deny from 2a0c:ab07:5000::/36
+Deny from 2a09:407:d000::/36
+Deny from 2a12:7c00:3000::/36
+Deny from 2a09:a4c1::/32
+Deny from 2a0d:5ec4::/32
+Deny from 2a09:a4c0::/32
+Deny from 2a09:a4c6::/32
+Deny from 2a09:bd87::/32
+Deny from 2a11:b84::/32
+Deny from 2a09:6f05::/32
+Deny from 2a09:405::/32
+Deny from 2a09:bd83::/32
+Deny from 2a09:d80::/29
+Deny from 2a11:200:d000::/36
+Deny from 2a09:3505:3000::/36
+Deny from 2a11:782::/32
+Deny from 2a11:af05::/32
+Deny from 2a09:3501::/32
+Deny from 2a0d:8b06::/32
+Deny from 2a09:3505:2000::/36
+Deny from 2a09:3d05::/32
+Deny from 2a0f:c585::/32
+Deny from 2a12:7c00:1000::/36
+Deny from 2a11:e80::/32
+Deny from 2a0f:cf80::/29
+Deny from 2a0d:f340::/29
+Deny from 2a0d:d500::/29
+Deny from 2a10:2ec7:5000::/36
+Deny from 2a09:3504::/32
+Deny from 2a0d:5ec1:3000::/36
+Deny from 2a11:af06:2000::/36
+Deny from 2a09:b682::/32
+Deny from 2a09:b683::/32
+Deny from 2a0d:8b00::/29
+Deny from 2a10:c0c2::/32
+Deny from 2a0d:5ec2::/32
+Deny from 95.215.109.0/24
+Deny from 2a10:c0c4::/32
+Deny from 2a0b:bd00::/29
+Deny from 2a12:7c04::/32
+Deny from 2a09:3804:1000::/36
+Deny from 2a0d:8b04::/32
+Deny from 2a0d:e4c0::/29
+Deny from 2a09:3804:3000::/36
+Deny from 2a09:b686::/32
+Deny from 2a09:6f01::/32
+Deny from 2a09:400:8000::/36
+Deny from 2a10:c0c5::/32
+Deny from 2a09:a4c7:1000::/36
+Deny from 2a09:3505:b000::/36
+Deny from 2a09:3802::/32
+Deny from 2a11:784::/32
+Deny from 2a09:3805::/32
+Deny from 2a0d:5ec0::/32
+Deny from 2a05:fb40::/29
+Deny from 2a0d:60c0::/29
+Deny from 2a0a:b40::/29
+Deny from 2a11:e80::/29
+Deny from 185.254.191.0/24
+Deny from 2a09:402::/32
+Deny from 2a09:bd80::/32
+Deny from 2a09:a4c7::/36
+Deny from 2a0c:2107:4000::/36
+Deny from 2a09:3d03::/32
+Deny from 2a0c:5240::/29
+Deny from 2a09:6f02::/32
+Deny from 2a0f:9884::/32
+Deny from 2a0f:cc87:2000::/36
+Deny from 2a09:a4c0::/29
+Deny from 2a09:3804::/36
+Deny from 2a09:7e00::/29
+Deny from 45.142.210.0/24
+Deny from 2a09:3503::/32
+Deny from 2a0d:e4c1::/32
+Deny from 2a09:4e00::/29
+Deny from 2a0d:8b01::/32
+Deny from 2a0f:cc87:1000::/36
+Deny from 2a09:400:3000::/36
+Deny from 2a11:af00::/32
+Deny from 2a07:14c0::/29
+Deny from 2a0e:fb43::/32
+Deny from 2a09:a4c7:4000::/36
+Deny from 2a11:200:e000::/36
+Deny from 2a11:b80:1000::/36
+Deny from 2a10:c343::/32
+Deny from 212.90.96.0/22
+Deny from 2a10:c0c0::/32
+Deny from 2a11:e82::/32
+Deny from 2a11:207::/32
+Deny from 2a09:400::/36
+Deny from 2a11:b80:e000::/36
+Deny from 2a09:3804:5000::/36
+Deny from 2a11:af06:6000::/36
+Deny from 2a09:407:e000::/36
+Deny from 2a0d:abc0::/29
+Deny from 2a09:3803::/32
+Deny from 2a09:bd86::/32
+Deny from 2a11:b83::/32
+Deny from 2a0f:c580::/29
+Deny from 2a09:3d00::/29
+Deny from 2a09:b687::/32
+Deny from 2a09:400:1000::/36
+Deny from 2a0d:8b03::/32
+Deny from 2a09:407:9000::/36
+Deny from 2a09:4e01:9000::/36
+Deny from 2a12:7c05::/32
+Deny from 2a0f:cc87:f000::/36
+Deny from 2a09:b680::/29
+Deny from 2a11:af02::/32
+Deny from 2a09:404::/32
+Deny from 2a0f:9880::/29
+Deny from 2a0d:5ec7::/32
+Deny from 2a0f:c582::/32
+Deny from 2a11:5a43::/32
+Deny from 2a11:b86::/32
+Deny from 2a09:6f03::/32
+Deny from 88.218.216.0/22
+Deny from 2a09:bd81::/32
+Deny from 2a0d:e4c4:6000::/36
+Deny from 2a09:4e01:1000::/36
+Deny from 2a09:3804:4000::/36
+Deny from 2a11:b80:2000::/36
+Deny from 2a11:200:f000::/36
+Deny from 2a09:3500::/32
+Deny from 2a11:af06:5000::/36
+Deny from 2a0d:5ec1:6000::/36
+Deny from 84.54.36.0/24
+Deny from 2a11:200:c000::/36
+Deny from 2a12:7c03::/32
+Deny from 2a10:c342::/32
+Deny from 2a0f:cc80::/32
+Deny from 2a05:53c0::/29
+Deny from 2a11:980::/29
+Deny from 83.171.240.0/24
+Deny from 2a0d:e4c0::/32
+Deny from 2a09:4e06::/32
+Deny from 2a09:3502::/32
+Deny from 2a11:680::/29
+Deny from 2a0f:c586::/32
+Deny from 2a0d:7740::/29
+Deny from 2a0a:f200::/29
+Deny from 2a10:c340::/29
+Deny from 2a11:b85::/32
+Deny from 2a0d:8b00:6000::/36
+Deny from 2a09:4e01:f000::/36
+Deny from 2a09:3d07::/32
+Deny from 2a11:af00::/29
+Deny from 2a09:4e00::/32
+Deny from 2a11:b80:9000::/36
+Deny from 2a12:7c00:2000::/36
+Deny from 2a0d:5ec1:4000::/36
+Deny from 2a11:205::/32
+Deny from 2a09:3701::/32
+Deny from 5.42.70.0/24
+Deny from 2a11:787::/32
+Deny from 2a10:c0c1::/32
+Deny from 2a0d:8b00:8000::/36
+Deny from 2a09:3d00::/32
+Deny from 2a12:7c00:4000::/36
+Deny from 2a09:3804:6000::/36
+Deny from 2a11:780::/36
+Deny from 2a09:3804:8000::/36
+Deny from 2a11:af04::/32
+Deny from 2a10:c340:2000::/36
+Deny from 2a10:c344::/32
+
+#php_value opcache.revalidate_freq 0
+#php_value date.timezone "Asia/Yekaterinburg"
+
+RewriteEngine On
+RewriteBase /
+
+# >>> iter8 safe URL cleanup (cursor 2026-05-05) >>>
+# Canonicalize the three known navigation URLs that were emitted with a
+# trailing encoded space. This is a non-visual safety net: valid clean URLs keep
+# working, and accidental "%20" clicks no longer end in Apache 403.
+RewriteRule ^production/boxes\x20$ /production/boxes [R=301,L,NE]
+RewriteRule ^production/for-product-sample\x20$ /production/for-product-sample [R=301,L,NE]
+RewriteRule ^production/papki\x20$ /production/papki [R=301,L,NE]
+# <<< iter8 safe URL cleanup (cursor 2026-05-05) <<<
+
+RewriteCond %{HTTP_USER_AGENT} AhrefsBot [NC]
+RewriteRule ^.* - [F,L]
+RewriteCond %{HTTP_USER_AGENT} SemrushBot [NC]
+RewriteRule ^.* - [F,L]
+RewriteCond %{HTTP_USER_AGENT} AhrefsBot/5.1 [NC]
+RewriteRule ^.* - [F,L]
+RewriteCond %{HTTP_USER_AGENT} SemrushBot/1.1~bl [NC]
+RewriteRule ^.* - [F,L]
+RewriteCond %{HTTP_USER_AGENT} MJ12bot/v1.4.8 [NC]
+RewriteRule ^.* - [F,L]
+RewriteCond %{HTTP_USER_AGENT} petalbot [NC]
+RewriteRule ^.* - [F,L]
+RewriteCond %{HTTP_USER_AGENT} DotBot/1.2 [NC]
+RewriteRule ^.* - [F,L]
+RewriteCond %{HTTP_USER_AGENT} GPTBot/1.2 [NC]
+RewriteRule ^.* - [F,L]
+
+## Блокировка по USER AGENT:
+RewriteCond %{HTTP_USER_AGENT} claudebot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} GPTBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Seekport [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} MJ12bot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Java [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} NjuiceBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Gigabot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} JS-Kit [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Voyager [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} PostRank [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} PycURL [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ia_archiver [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} DotBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} SurveyBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} larbin [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Butterfly [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} libwww [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Wget [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} SWeb [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} LinkExchanger [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Soup [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} WordPress [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} PHP/ [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} spbot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} MLBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} InternetSeer [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} FairShare [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Yeti [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Birubot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} YottosBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} gold\ crawler [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Linguee [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Ezooms [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} lwp-trivial [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Purebot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} kmSearchBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} SiteBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} CamontSpider [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ptd-crawler [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} HTTrack [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} suggybot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ttCrawler [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Nutch [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Zeus [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} PetalBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} AspiegelBot [NC]
+RewriteRule !^robots\.txt$ - [F]
+
+
+
+
+#скрыл 28-04-2025
+RewriteCond %{HTTP_HOST} .
+RewriteCond %{HTTP_HOST} ^www.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ https://m-trud.ru/ [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ https://m-trud.ru/ [R=301,L]
+
+# Prevent rewrite the .well-known directory used by LetsEncrypt by rules below of this rule
+RewriteRule "^\.well-known/" - [L]
+
+# Prevent dot directories (hidden directories like .git) to be exposed to the public
+# Except for the .well-known directory used by LetsEncrypt a.o
+RewriteRule "/\.|^\.(?!well-known/)" - [F]
+
+
+# Rewrite www.example.com -> example.com -- used with SEO Strict URLs plugin
+# RewriteCond %{HTTP_HOST} .
+# RewriteCond %{HTTP_HOST} ^www.(.*)$ [NC]
+# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+#
+# or for the opposite example.com -> www.example.com use the following
+# DO NOT USE BOTH
+#
+#RewriteCond %{HTTP_HOST} !^$
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteCond %{HTTP_HOST} (.+)$
+#RewriteRule ^(.*)$ https://www.%1/$1 [R=301,L] .
+
+
+
+# Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent 
+# https://www.example.com when your cert only allows https://secure.example.com
+#RewriteCond %{SERVER_PORT} !^443
+#RewriteRule (.*) https://example.com/$1 [R=301,L]
+
+
+
+# Redirect the manager to a specific domain - don't rename the ht.access file
+# in the manager folder to use this this rule
+#RewriteCond %{HTTP_HOST} !^example\.com$ [NC]
+#RewriteCond %{REQUEST_URI} ^/manager [NC]
+#RewriteRule ^(.*)$ https://example.com/$1 [R=301,L]
+
+
+
+
+# >>> P0 URL normalization (cursor 2026-05-04) >>>
+# Strip the noise q= parameter when its target is NOT the MODX entry point.
+# robots.txt already disallows *?*q=. Returning 301 on non-/index.php gives
+# crawlers a clean URL instead of a soft-404. 
+RewriteCond %{REQUEST_URI} !^/index\.php$ [NC]
+RewriteCond %{QUERY_STRING} (^|&)q= [NC]
+RewriteRule ^(.*)$ /$1? [R=301,L]
+
+# Collapse any doubled slashes in the request line into one (single-hop).
+# Uses THE_REQUEST because Apache may already merge slashes in REQUEST_URI.
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s([^?]*?)//+([^\s?]*)([\s?].*)?\sHTTP/ [NC]
+RewriteRule .* %1/%2 [R=301,L]
+
+# Conservative response headers (no caching impact).
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+# <<< P0 URL normalization (cursor 2026-05-04) <<<
+
+# The Friendly URLs part
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+
+
+
+# Make sure .htc files are served with the proper MIME type, which is critical
+# for XP SP2. Un-comment if your host allows htaccess MIME type overrides.
+
+#AddType text/x-component .htc
+
+
+
+# If your server is not already configured as such, the following directive
+# should be uncommented in order to set PHP's register_globals option to OFF.
+# This closes a major security hole that is abused by most XSS (cross-site
+# scripting) attacks. For more information: http://php.net/register_globals
+#
+# To verify that this option has been set to OFF, open the Manager and choose
+# Reports -> System Info and then click the phpinfo() link. Do a Find on Page
+# for "register_globals". The Local Value should be OFF. If the Master Value
+# is OFF then you do not need this directive here.
+#
+# IF REGISTER_GLOBALS DIRECTIVE CAUSES 500 INTERNAL SERVER ERRORS :
+#
+# Your server does not allow PHP directives to be set via .htaccess. In that
+# case you must make this change in your php.ini file instead. If you are
+# using a commercial web host, contact the administrators for assistance in
+# doing this. Not all servers allow local php.ini files, and they should
+# include all PHP configurations (not just this one), or you will effectively
+# reset everything to PHP defaults. Consult www.php.net for more detailed
+# information about setting PHP directives.
+
+#php_flag register_globals Off
+
+
+
+# For servers that support output compression, you should pick up a bit of
+# speed by un-commenting the following lines.
+
+#php_flag zlib.output_compression On
+#php_value zlib.output_compression_level 5
+
+
+
+# The following directives stop screen flicker in IE on CSS rollovers. If
+# needed, un-comment the following rules. When they're in place, you may have
+# to do a force-refresh in order to see changes in your designs.
+
+#ExpiresActive On
+#ExpiresByType image/gif A2592000
+#ExpiresByType image/jpeg A2592000
+#ExpiresByType image/png A2592000
+#BrowserMatch "MSIE" brokenvary=1
+#BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
+#BrowserMatch "Opera" !brokenvary
+#SetEnvIf brokenvary 1 force-no-vary
+
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType text/css "access 1 month"
+ExpiresByType text/html "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+
+FileETag MTime Size
+<ifmodule mod_expires.c>
+  <filesmatch "\.(jpg|gif|png|css|js)$">
+       ExpiresActive on
+       ExpiresDefault "access plus 1 year"
+   </filesmatch>
+</ifmodule>
+
+RewriteCond %{THE_REQUEST} //
+RewriteRule .* /$0 [R=301,L]
+
+#gzip сжатие
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4.0678 no-gzip
+BrowserMatch bMSIE gzip-only-text/html
+<ifmodule mod_gzip.c>
+mod_gzip_on Yes
+mod_gzip_item_include file \.js$
+mod_gzip_item_include file \.css$ </IfModule>
+</IfModule>
+# фин gzip сжатие
