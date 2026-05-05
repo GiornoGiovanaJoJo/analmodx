@@ -1,0 +1,17 @@
+--- /workspace/artifacts/changes/iter3/php_ini_before.txt	2026-05-04 19:15:33.296385069 +0000
++++ /workspace/artifacts/changes/iter3/php_ini_after.txt	2026-05-04 19:15:30.736382779 +0000
+@@ -14,3 +14,14 @@
+ sendmail_path=/usr/sbin/sendmail -t -i -f 'admin@m-trud.ru'
+ display_errors=off
+ date.timezone=Europe/Moscow
++
++; >>> P1 opcache tuning (cursor 2026-05-04) >>>
++opcache.memory_consumption=192
++opcache.interned_strings_buffer=16
++opcache.validate_timestamps=1
++opcache.revalidate_freq=60
++opcache.fast_shutdown=1
++opcache.save_comments=1
++realpath_cache_size=4096k
++realpath_cache_ttl=600
++; <<< P1 opcache tuning (cursor 2026-05-04) <<<

@@ -1,0 +1,16 @@
+; priority=99
+opcache.blacklist_filename=/opt/opcache-blacklists/opcache-*.blacklist
+post_max_size=100M
+short_open_tag=On
+mail.add_x_header=On
+output_buffering=4096
+upload_tmp_dir=/var/www/m_trud_ru_usr/data/tmp
+log_errors=On
+max_execution_time=120
+max_input_vars=10000
+session.save_path=/var/www/m_trud_ru_usr/data/tmp
+upload_max_filesize=100M
+opcache.max_accelerated_files=100000
+sendmail_path=/usr/sbin/sendmail -t -i -f 'admin@m-trud.ru'
+display_errors=off
+date.timezone=Europe/Moscow
