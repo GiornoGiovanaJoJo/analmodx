@@ -1,0 +1,16 @@
+--- /workspace/artifacts/changes/p1/vhost_before_p1.conf	2026-05-04 18:32:47.160062975 +0000
++++ /workspace/artifacts/changes/p1/vhost_after_p1.conf	2026-05-04 18:32:44.748066297 +0000
+@@ -31,6 +31,13 @@
+ 
+      location ~* ^.+\.(jpg|jpeg|gif|png|svg|js|css|mp3|ogg|mpeg|avi|zip|gz|bz2|rar|swf|ico|7z|doc|docx|map|ogg|otf|pdf|tff|tif|txt|wav|webp|woff|woff2|xls|xlsx|xml)$ {
+         try_files $uri $uri/ @fallback;
++        # >>> P1 cache (cursor 2026-05-04) >>>
++        access_log off;
++        expires off;
++        gzip_static on;
++        add_header Cache-Control "public, max-age=31536000, immutable" always;
++        add_header X-Content-Type-Options "nosniff" always;
++        # <<< P1 cache (cursor 2026-05-04) <<<
+     }
+ 
+     location @fallback {
