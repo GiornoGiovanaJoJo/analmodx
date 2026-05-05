@@ -1,0 +1,18 @@
+# Cursor agent tuning (P1, 2026-05-04)
+# Loaded after 99-fastpanel.cnf because /etc/mysql/conf.d is included after my.cnf.fastpanel
+[mysqld]
+# Bigger InnoDB buffer pool. RAM=1.8GB, DB=389MB. 256M still leaves headroom for Apache/PHP/nginx.
+innodb_buffer_pool_size = 256M
+# Multiple instances when buffer >= 1G (we use 1 instance, 256M < 1G threshold).
+innodb_buffer_pool_instances = 1
+# Bigger redo log; helps write-heavy MODX cache pages.
+innodb_log_file_size = 128M
+# SSD-friendly IO capacity.
+innodb_io_capacity = 400
+innodb_io_capacity_max = 2000
+# Faster shutdown for restart.
+innodb_fast_shutdown = 1
+# Slow log: keep light, only queries > 2s, useful for monitoring.
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/slow.log
+long_query_time = 2

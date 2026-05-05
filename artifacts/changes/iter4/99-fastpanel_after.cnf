@@ -1,0 +1,12 @@
+[mysqld]
+disable-log-bin
+innodb-buffer-pool-size=256M
+innodb-flush-log-at-trx-commit=2
+innodb-flush-method=O_DIRECT
+max-heap-table-size=32M
+sql-mode=
+tmp-table-size=32M
+transaction-isolation=READ-COMMITTED
+default-authentication-plugin=mysql_native_password
+mysqlx=OFF
+performance-schema=OFF
