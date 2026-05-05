@@ -53,6 +53,25 @@ HTTP-проверка после изменения:
 | `/production/boxes` | `200` |
 | `/` | `200` |
 
+Основной smoke-check репозитория:
+
+```json
+{
+  "pages_crawled": 15,
+  "links_checked": 201,
+  "broken_count": 0,
+  "broken_sample": []
+}
+```
+
+Дополнительная невизуальная проверка:
+
+- JSON-LD валиден на 5 проверенных URL (`/`, `/production/paper-bags`, `/production/boxes`, `/info/news`, `/contacts`).
+- `sitemap.xml` остаётся рабочим: `200`, `urlset`, 1341 URL.
+- `sitemap_index.xml` остаётся рабочим: `200`, включает `sitemap.xml` и `sitemap-extra.xml`.
+- `sitemap-extra.xml` отдаёт главную страницу (`https://m-trud.ru/`) и валидный XML.
+- `/undefined?cursorcheck` по-прежнему отдаёт `404`; безопасный локальный источник в HTML/локальных JS не найден, поэтому без риска для сторонних скриптов не менялось.
+
 ## Откат
 
 ```bash
