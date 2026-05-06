@@ -1,0 +1,18 @@
+--- /workspace/artifacts/changes/iter8/htaccess_before_iter8.txt	2026-05-05 19:00:59.728554147 +0000
++++ /workspace/artifacts/changes/iter8/htaccess_after_iter8.txt	2026-05-05 19:01:00.016557960 +0000
+@@ -481,6 +481,15 @@
+ RewriteEngine On
+ RewriteBase /
+ 
++# >>> iter8 safe URL cleanup (cursor 2026-05-05) >>>
++# Canonicalize the three known navigation URLs that were emitted with a
++# trailing encoded space. This is a non-visual safety net: valid clean URLs keep
++# working, and accidental "%20" clicks no longer end in Apache 403.
++RewriteRule ^production/boxes\x20$ /production/boxes [R=301,L,NE]
++RewriteRule ^production/for-product-sample\x20$ /production/for-product-sample [R=301,L,NE]
++RewriteRule ^production/papki\x20$ /production/papki [R=301,L,NE]
++# <<< iter8 safe URL cleanup (cursor 2026-05-05) <<<
++
+ RewriteCond %{HTTP_USER_AGENT} AhrefsBot [NC]
+ RewriteRule ^.* - [F,L]
+ RewriteCond %{HTTP_USER_AGENT} SemrushBot [NC]
