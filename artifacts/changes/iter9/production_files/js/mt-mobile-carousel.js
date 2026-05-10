@@ -149,7 +149,7 @@
 
     var originalOwlCarousel = $.fn.owlCarousel;
 
-    $.fn.owlCarousel = function guardedOwlCarousel() {
+    function guardedOwlCarousel() {
       var marked = this.filter(CAROUSEL_SELECTOR);
       var legacy = this.not(CAROUSEL_SELECTOR);
 
@@ -162,10 +162,17 @@
       }
 
       return this;
-    };
+    }
 
-    $.fn.owlCarousel.__mtCarouselGuard = true;
-    $.fn.owlCarousel.__mtOriginal = originalOwlCarousel;
+    for (var property in originalOwlCarousel) {
+      if (Object.prototype.hasOwnProperty.call(originalOwlCarousel, property)) {
+        guardedOwlCarousel[property] = originalOwlCarousel[property];
+      }
+    }
+
+    guardedOwlCarousel.__mtCarouselGuard = true;
+    guardedOwlCarousel.__mtOriginal = originalOwlCarousel;
+    $.fn.owlCarousel = guardedOwlCarousel;
   }
 
   installOwlGuard();
