@@ -1,0 +1,10 @@
+{
+  "backup_dir": "/root/backups/m-trud_iter9_carousel_20260510T095259Z",
+  "files": [
+    "js/function.js",
+    "css/style.css",
+    "core/config/config.inc.php"
+  ],
+  "db": "/root/backups/m-trud_iter9_carousel_20260510T095259Z/db_full_20260510T095259Z.sql.gz",
+  "timestamp": "20260510T095259Z"
+}
