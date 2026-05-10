@@ -1,0 +1,6 @@
+{
+  "timestamp": "20260510T104114Z",
+  "backup_dir": "/root/backups/m-trud_iter10_product_card_images_20260510T104114Z",
+  "chunk": 102,
+  "reason": "rollback fixed image attrs from product cards"
+}
