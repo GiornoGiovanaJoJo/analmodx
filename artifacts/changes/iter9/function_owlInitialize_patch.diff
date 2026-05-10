@@ -1,0 +1,20 @@
+--- js/function.js.before
++++ js/function.js.after
+@@
+   function owlInitialize() {
++   var legacyMobileSliders = $('.mobile-slider').not('[data-mt-carousel]');
+    if ($(window).width() < 500) {
+-      $('.mobile-slider').owlCarousel(
++      legacyMobileSliders.owlCarousel(
+       {
+         items: 1,
+         autoHeight : true,
+         lazyLoad : true,
+         navigation: true,
+       }
+     );
+    }else{
+-       $('.mobile-slider').trigger('destroy.owl.carousel');
++       legacyMobileSliders.trigger('destroy.owl.carousel');
+    }
+ }

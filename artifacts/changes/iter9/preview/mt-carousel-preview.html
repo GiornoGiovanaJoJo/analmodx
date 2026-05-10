@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preview: m-trud.ru lightweight mobile carousel</title>
+  <link rel="stylesheet" href="../production_files/css/mt-mobile-carousel.css">
+  <style>
+    body {
+      margin: 0;
+      color: #424242;
+      font: 14px/1.4 Arial, sans-serif;
+      background: #fff;
+    }
+    .preview-page {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 20px 15px 60px;
+    }
+    .title_2_1 {
+      display: block;
+      margin: 28px 0 0;
+      color: #af0505;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .title_2_1-mobile {
+      text-align: center;
+    }
+    .row-new {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .categories-index {
+      padding: 20px 0 30px;
+    }
+    .grid-col-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .catalog_link {
+      display: block;
+      text-decoration: none;
+    }
+    .categories-index img {
+      width: calc(100% - 2px);
+      height: auto;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .card_text-new {
+      display: flex;
+      min-height: 45px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      color: #af0505;
+      font-weight: 700;
+      line-height: 16px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .ready-card-item {
+      display: inline-block;
+      min-height: 300px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      font-size: 12px;
+      text-align: center;
+    }
+    .ready-card-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .ready-card-item img {
+      display: block;
+      width: 100%;
+      margin: 0;
+      border: 0;
+    }
+    .ready-card-item .title {
+      display: block;
+      min-height: 50px;
+      padding: 15px 5px;
+      background: #f2f2f2;
+      line-height: 12px;
+    }
+    .ready-card-item .price p {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .ready-card-item .price span {
+      color: #af0505;
+    }
+    .ready-card-item .link {
+      height: 30px;
+      margin: 10px;
+    }
+    .ready-card-item .link a {
+      display: inline-block;
+      width: 100%;
+      padding: 3px 0;
+      background: #949090;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    @media (max-width: 900px) {
+      .grid-col-4 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 800px) {
+      .grid-col-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .ready-card-item .title {
+        font-size: 16px;
+        line-height: 1.2;
+      }
+      .categories-index {
+        padding: 7px 0 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-page">
+    <h1>Preview самописной карусели `.mobile-slider`</h1>
+
+    <span class="title_2_1 title_2_1-mobile">ПОПУЛЯРНЫЕ РАЗДЕЛЫ</span>
+    <div class="row-new categories-index grid-col-4 mobile-slider" data-mt-carousel="home">
+      <div class="border_top-new">
+        <a href="https://m-trud.ru/paper-bags/lenta" class="catalog_link">
+          <img class="adaptive-img" width="450" height="450" alt="Производство бумажных пакетов с лентами" src="https://m-trud.ru/assets/cache_image_product_3/images/packet/1265_paket_1_450x450_a03.webp">
+          <span class="card_text card_text-new">Бумажные пакеты с лентами</span>
+        </a>
+      </div>
+      <div class="border_top-new">
+        <a href="https://m-trud.ru/production/boxes/korobki-s-ruchkami" class="catalog_link">
+          <img class="adaptive-img" width="450" height="450" alt="Картонные коробки с ручками на заказ" src="https://m-trud.ru/assets/cache_image_product_3/images/box/1112_korobka_1_450x450_a03.webp">
+          <span class="card_text card_text-new">Коробки с ручками</span>
+        </a>
+      </div>
+      <div class="border_top-new">
+        <a href="https://m-trud.ru/production/boxes/box-furnitura" class="catalog_link">
+          <img class="adaptive-img" width="450" height="450" alt="Фурнитура для коробок" src="https://m-trud.ru/assets/cache_image_product_3/images/card/box-furnitura/furnitura_zamok_red_box1_450x450_a03.webp">
+          <span class="card_text card_text-new">Фурнитура для коробок</span>
+        </a>
+      </div>
+      <div class="border_top-new">
+        <a href="https://m-trud.ru/production/boxes/3" class="catalog_link">
+          <img class="adaptive-img" width="450" height="450" alt="Подарочные коробки шкатулка на заказ" src="https://m-trud.ru/assets/cache_image_product_3/images/card/box/16/1_korobka_shkatulka_red_zvezda_450x450_a03.webp">
+          <span class="card_text card_text-new">Коробка шкатулка</span>
+        </a>
+      </div>
+    </div>
+
+    <span class="title_2_1 title_2_1-mobile">Популярный товар</span>
+    <div class="row-new categories-index grid-col-4 mobile-slider" data-mt-carousel="home">
+      <div class="ready-card-item">
+        <a href="https://m-trud.ru/boxes/box-flowerscook150">
+          <img width="450" height="450" alt="Коробка квадратная с выдвижным ящиком" src="https://m-trud.ru/assets/cache_image_product_3/images/box/150_korobka_2_450x450_a03.webp">
+        </a>
+        <div class="title"><a href="https://m-trud.ru/boxes/box-flowerscook150">Коробка квадратная с выдвижным ящиком под подарочный набор</a></div>
+        <div class="price"><p><span>цена по запросу</span></p></div>
+        <div class="link"><a href="#simple-order">заказать от 20 шт</a></div>
+      </div>
+      <div class="ready-card-item">
+        <a href="https://m-trud.ru/production/boxes/korobka-902">
+          <img width="450" height="450" alt="Коробка шкатулка с атласным ложементом" src="https://m-trud.ru/assets/cache_image_product_3/images/box/902_korobka_4_1_450x450_a03.webp">
+        </a>
+        <div class="title"><a href="https://m-trud.ru/production/boxes/korobka-902">Коробка шкатулка с атласным ложементом</a></div>
+        <div class="price"><p><span>цена по запросу</span></p></div>
+        <div class="link"><a href="#simple-order">заказать от 100 шт</a></div>
+      </div>
+      <div class="ready-card-item">
+        <a href="https://m-trud.ru/boxes/perfume181">
+          <img width="450" height="450" alt="Круглая коробка под духи" src="https://m-trud.ru/assets/cache_image_product_3/images/box/box_suvenir_kr_yalta1_mt_450x450_a03.webp">
+        </a>
+        <div class="title"><a href="https://m-trud.ru/boxes/perfume181">Круглая коробка под духи</a></div>
+        <div class="price"><p><span>цена по запросу</span></p></div>
+        <div class="link"><a href="#simple-order">заказать от 100 шт</a></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../production_files/js/mt-mobile-carousel.js"></script>
+</body>
+</html>
