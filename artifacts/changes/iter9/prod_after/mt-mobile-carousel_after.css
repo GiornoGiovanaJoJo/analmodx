@@ -1,0 +1,105 @@
+/*
+ * Lightweight homepage carousel for m-trud.ru.
+ *
+ * Scope is intentionally limited to sliders explicitly marked in MODX:
+ *   <div class="row-new categories-index grid-col-4 mobile-slider" data-mt-carousel="home">
+ *
+ * The existing Owl Carousel remains untouched for every other .mobile-slider.
+ */
+
+@media (max-width: 499px) {
+  [data-mt-carousel] {
+    display: grid !important;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    grid-template-columns: none !important;
+    gap: 0 !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    box-sizing: border-box;
+    margin: 0 0 30px;
+    padding: 7px 0 40px;
+  }
+
+  [data-mt-carousel]::-webkit-scrollbar {
+    display: none;
+  }
+
+  [data-mt-carousel] > * {
+    justify-self: center;
+    align-self: stretch;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    box-sizing: border-box;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 300px !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  [data-mt-carousel] > .border_top-new,
+  [data-mt-carousel] > .ready-card-item {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  [data-mt-carousel] .ready-card-item {
+    display: block !important;
+    max-width: 300px;
+  }
+
+  [data-mt-carousel] img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  [data-mt-carousel] + .mt-carousel-dots {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 24px;
+    margin: -40px 0 30px;
+    padding: 0;
+    line-height: 0;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  [data-mt-carousel] + .mt-carousel-dots .mt-carousel-dot {
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin: 4px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #d4d4d4;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  [data-mt-carousel] + .mt-carousel-dots .mt-carousel-dot.is-active {
+    background: #af0505;
+  }
+
+  [data-mt-carousel] + .mt-carousel-dots .mt-carousel-dot:focus {
+    outline: 2px solid #af0505;
+    outline-offset: 2px;
+  }
+}
+
+@media (min-width: 500px) {
+  [data-mt-carousel] + .mt-carousel-dots {
+    display: none !important;
+  }
+}
