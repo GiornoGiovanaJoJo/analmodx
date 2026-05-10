@@ -5,3 +5,8 @@ artifacts/baseline/db/
 # MODX core/config contains DB password — never commit
 artifacts/**/core_config_inc.php
 artifacts/**/config.core.php
+
+# Local tooling/runtime byproducts
+node_modules/
+__pycache__/
+*.pyc
